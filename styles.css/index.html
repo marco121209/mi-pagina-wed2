@@ -3,64 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los mejores teléfonos y tablet</title>
+    <title>TECPHONES</title>
     <style>
-        /* creamos los colores para el fondo y letras*/
-        body {
-            background-color: #f3efef;
-            color: #080a0a;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Estilo para el titulo */
-        h1 {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 36px;
-        }
-    
-        /* hacemos estilos para las barras de navegacion */
-        nav {
-            text-align: center;
-            background-color: #ebe7e7;
-            padding: 10px;
-        }
-
-        nav a {
-            color: #0a055a;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 18px;
-        }
-
-        nav a:hover {
-            color: #FFD700;
-        }
-
-        /* Estilo de contenedor principal */
-        .container {
-            text-align: center;
-            padding: 5px;
-        }
+        body{font-family:'Segoe UI',sans-serif;margin:0;padding:0;background:#f4f5f7}
+        h1{color:#4a90e2;text-align:center;margin-top:80px;font-size:48px}
+        h2{color:#333;text-align:center;font-size:24px}
+        nav{background:#2c3e50;padding:15px;text-align:center}
+        nav a{color:#ecf0f1;text-decoration:none;margin:0 20px}
+        .container{background:#fff;padding:20px;text-align:center}
+        .search-container{display:flex;justify-content:center;margin-top:30px;position:relative;}
+        input,button{padding:12px;border-radius:5px;font-size:16px}
+        button{background:#3498db;color:#fff}
+        button:hover{background:#2980b9}
+        #formularioRegistro{display:none;position:fixed;top:20%;left:35%;background:#fff;padding:30px;width:400px;border-radius:10px;box-shadow:0 0 20px rgba(0,0,0,.3)}
+        #formularioRegistro input{width:100%;margin-bottom:15px}
+        #formularioRegistro button{width:100%;background:#4CAF50}
+        #formularioRegistro .cancel-button{background:#e74c3c}
+        #formularioRegistro .captcha{margin-top:15px}
+        .search-container button img{width:20px; height:20px; position:absolute; bottom:10px; left:10px;} /* Lupita en la esquina inferior izquierda */
+        #paginaBusqueda nav{position:fixed; top:0; left:0; right:0; background:#2c3e50; padding:10px; text-align:center;}
+        #paginaBusqueda nav a{color:#ecf0f1;text-decoration:none;margin:0 20px}
     </style>
 </head>
 <body>
-    <!-- Título -->
-    <h1>TECPHONES<H1>
 
-    <!-- Menú de navegación -->
-    <nav>
-        <a href="#">Regístrate</a>
-    </nav>
-
-    <!-- Contenedor principal -->
-    <div class="container">
-        <H6>Bienvenido a nuestra tienda de los celulares y tablets que se ajusta a tu preupuesto y rendimiento.</p>
-        <H6>Con la mejor experiencia de usuario que te puedas encontrar</p>
+    <!-- Página de Inicio -->
+    <div id="paginaInicio">
+        <h1>TECPHONES</h1>
+        <nav><a href="#" onclick="mostrarFormulario()">Regístrate</a></nav>
+        <div id="formularioRegistro">
+            <h3>Iniciar Sesión</h3>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
+            <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required>
+            <button onclick="iniciarSesion()">Iniciar sesión</button>
+            <div class="captcha">
+                <input type="checkbox" id="captcha" /> No soy un robot
+            </div>
+            <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
+        </div>
+        <div class="container">
+            <h2>Celulares y tablets a tu medida</h2>
+        </div>
     </div>
+
+    <!-- Página de Búsqueda -->
+    <div id="paginaBusqueda" style="display:none;">
+        <h1>Buscar Celular</h1>
+        <nav>
+            <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+            <a href="#">Carrito</a>
+            <a href="#">Tu inicio</a>
+        </nav>
+        <div class="search-container">
+            <input type="text" placeholder="Buscar celular...">
+            <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar formulario
+        function mostrarFormulario() {
+            document.getElementById('formularioRegistro').style.display = 'block';
+        }
+        // Cerrar formulario
+        function cerrarFormulario() {
+            document.getElementById('formularioRegistro').style.display = 'none';
+        }
+        // Iniciar sesión con validación de correo, nombre de usuario, contraseña y captcha
+        function iniciarSesion() {
+            const correo = document.getElementById('correo').value;
+            const contrasena = document.getElementById('contrasena').value;
+            const nombreUsuario = document.getElementById('nombreUsuario').value;
+            const captcha = document.getElementById('captcha').checked;
+
+            // Validación estricta del correo
+            const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!regexEmail.test(correo)) {
+                alert('Por favor, ingresa un correo electrónico válido.');
+                return;
+            }
+
+            // Validar que el captcha esté marcado
+            if (!captcha) {
+                alert('Por favor, verifica que no eres un robot.');
+                return;
+            }
+
+            // Validar nombre de usuario
+            if (!nombreUsuario) {
+                alert('Por favor, ingresa un nombre de usuario.');
+                return;
+            }
+
+            // Si todo es válido, cambiar de página
+            if (correo && contrasena && nombreUsuario && captcha) {
+                document.getElementById('paginaInicio').style.display = 'none';
+                document.getElementById('paginaBusqueda').style.display = 'block';
+            } else {
+                alert('Por favor, ingresa todos los datos correctamente.');
+            }
+        }
+        // Cerrar sesión
+        function cerrarSesion() {
+            document.getElementById('paginaBusqueda').style.display = 'none';
+            document.getElementById('paginaInicio').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
-
