@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los mejores teléfonos y tablet</title>
+    <style>
+        /* creamos los colores para el fondo y letras*/
+        body {
+            background-color: #f3efef;
+            color: #080a0a;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para el titulo */
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 36px;
+        }
+
+        /* hacemos estilos para las barras de navegacion */
+        nav {
+            text-align: center;
+            background-color: #ebe7e7;
+            padding: 10px;
+        }
+
+        nav a {
+            color: #0a055a;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* Estilo de contenedor principal */
+        .container {
+            text-align: center;
+            padding: 5px;
+        }
+
+        /* Estilo del formulario emergente */
+        #formularioRegistro {
+            display: none;
+            position: fixed;
+            top: 30%;
+            left: 35%;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Título -->
+    <h1>TECPHONES</h1>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <a href="#" onclick="mostrarFormulario()">Regístrate</a>
+    </nav>
+
+    <!-- Formulario emergente -->
+    <div id="formularioRegistro">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="correo" placeholder="Correo electrónico" required style="display:block; margin:10px 0; padding:5px; width:100%;">
+        <input type="password" id="contrasena" placeholder="Contraseña" required style="display:block; margin:10px 0; padding:5px; width:100%;">
+        <button onclick="iniciarSesion()" style="background-color:#aabe7e; color:#fff; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">Iniciar sesión</button>
+        <button onclick="cerrarFormulario()" style="margin-left:10px; background-color:#ccc; color:#000; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;">Cancelar</button>
+    </div>
+
+    <script>
+        function mostrarFormulario() {
+            document.getElementById('formularioRegistro').style.display = 'block';
+        }
+
+        function cerrarFormulario() {
+            document.getElementById('formularioRegistro').style.display = 'none';
+        }
+
+        function iniciarSesion() {
+            const correo = document.getElementById('correo').value;
+            const contrasena = document.getElementById('contrasena').value;
+            if (correo && contrasena) {
+                alert(`Inicio de sesión exitoso para: ${correo}`);
+                cerrarFormulario();
+            } else {
+                alert('Por favor, ingresa tu correo y contraseña.');
+            }
+        }
+    </script>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <h6>Bienvenido a nuestra tienda de los celulares y tablets que se ajustan a tu presupuesto y rendimiento.</h6>
+        <h6>Con la mejor experiencia de usuario que te puedas encontrar.</h6>
+    </div>
+</body>
+</html>

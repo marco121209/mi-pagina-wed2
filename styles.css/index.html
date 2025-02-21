@@ -23,6 +23,18 @@
         .search-container button img{width:20px; height:20px; position:absolute; bottom:10px; left:10px;} /* Lupita en la esquina inferior izquierda */
         #paginaBusqueda nav{position:fixed; top:0; left:0; right:0; background:#2c3e50; padding:10px; text-align:center;}
         #paginaBusqueda nav a{color:#ecf0f1;text-decoration:none;margin:0 20px}
+        #carrito{margin-top:30px;text-align:left;padding:20px;background:#fff;}
+        #configuracion{background:#fff;padding:20px;margin-top:30px;}
+        #configuracion h3{color:#333;}
+        #configuracion p{font-size:16px;}
+        .producto{display:flex;justify-content:space-between;margin-bottom:15px;border-radius:8px;box-shadow:0 2px 10px rgba(0, 0, 0, 0.1);background:#fff;padding:10px}
+        .producto img{width:80px;height:80px;border-radius:8px;}
+        button {border-radius:8px;box-shadow:0 4px 6px rgba(0, 0, 0, 0.1);}
+        .error {color:red; font-size: 14px; display:none;}
+        #paginaInicio, #paginaBusqueda, #carrito, #configuracion {
+            transition: opacity 0.5s ease;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -34,8 +46,10 @@
         <div id="formularioRegistro">
             <h3>Iniciar Sesión</h3>
             <input type="email" id="correo" placeholder="Correo electrónico" required>
+            <div id="errorCorreo" class="error">Correo no válido</div>
             <input type="password" id="contrasena" placeholder="Contraseña" required>
             <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required>
+            <div id="errorUsuario" class="error">Por favor, ingresa un nombre de usuario.</div>
             <button onclick="iniciarSesion()">Iniciar sesión</button>
             <div class="captcha">
                 <input type="checkbox" id="captcha" /> No soy un robot
@@ -52,39 +66,96 @@
         <h1>Buscar Celular</h1>
         <nav>
             <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-            <a href="#">Carrito</a>
+            <a href="#" onclick="mostrarCarrito()">Carrito</a>
+            <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
             <a href="#">Tu inicio</a>
         </nav>
         <div class="search-container">
             <input type="text" placeholder="Buscar celular...">
             <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
         </div>
+
+        <!-- Información sobre los celulares -->
+        <div id="celulares">
+            <h3>Modelos Disponibles</h3>
+            <div class="producto">
+                <img src="https://tse1.mm.bing.net/th?id=OLP.32Q9UDoeuBYUSy5ozoJsbwHaJC&pid=Api" alt="celular 1" />
+                <div>
+                    <h4>Celular Modelo A</h4>
+                    <p>Descripción corta del modelo A. <br> Precio: $300</p>
+                    <button onclick="agregarCarrito('Celular Modelo A', 300)">Agregar al carrito</button>
+                </div>
+            </div>
+            <div class="producto">
+                <img src="https://via.placeholder.com/150" alt="Celular 2">
+                <div>
+                    <h4>Celular Modelo B</h4>
+                    <p>Descripción corta del modelo B. <br> Precio: $400</p>
+                    <button onclick="agregarCarrito('Celular Modelo B', 400)">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrito -->
+    <div id="carrito" style="display:none;">
+        <h2>Tu Carrito</h2>
+        <div id="productosCarrito"></div>
+        <h3>Total: $<span id="totalCarrito">0</span></h3>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button onclick="realizarCompra()">Realizar Compra</button>
+        <button onclick="regresarBusqueda()">Regresar a los celulares</button> <!-- Botón de regreso -->
+    </div>
+
+    <!-- Configuración -->
+    <div id="configuracion" style="display:none;">
+        <h3>Configuración de la cuenta</h3>
+        <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+        <p><strong>Nombre de Usuario:</strong> <span id="usuario"></span></p>
+        <h4>Privacidad</h4>
+        <ul>
+            <li><a href="#">Cambiar Contraseña</a></li>
+            <li><a href="#">Gestionar Privacidad</a></li>
+        </ul>
+        <h4>Aplicaciones Famosas</h4>
+        <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">WhatsApp</a></li>
+            <li><a href="#">Facebook</a></li>
+        </ul>
     </div>
 
     <script>
+        let carrito = [];
+        let total = 0;
+
         // Mostrar formulario
         function mostrarFormulario() {
             document.getElementById('formularioRegistro').style.display = 'block';
         }
+
         // Cerrar formulario
         function cerrarFormulario() {
             document.getElementById('formularioRegistro').style.display = 'none';
         }
-        // Iniciar sesión con validación de correo, nombre de usuario, contraseña y captcha
+
+        // Iniciar sesión con validación
         function iniciarSesion() {
             const correo = document.getElementById('correo').value;
             const contrasena = document.getElementById('contrasena').value;
             const nombreUsuario = document.getElementById('nombreUsuario').value;
             const captcha = document.getElementById('captcha').checked;
 
-            // Validación estricta del correo
+            // Validación de correo
             const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             if (!regexEmail.test(correo)) {
-                alert('Por favor, ingresa un correo electrónico válido.');
+                document.getElementById('errorCorreo').style.display = 'block';
                 return;
+            } else {
+                document.getElementById('errorCorreo').style.display = 'none';
             }
 
-            // Validar que el captcha esté marcado
+            // Validar captcha
             if (!captcha) {
                 alert('Por favor, verifica que no eres un robot.');
                 return;
@@ -92,22 +163,80 @@
 
             // Validar nombre de usuario
             if (!nombreUsuario) {
-                alert('Por favor, ingresa un nombre de usuario.');
+                document.getElementById('errorUsuario').style.display = 'block';
                 return;
+            } else {
+                document.getElementById('errorUsuario').style.display = 'none';
             }
 
             // Si todo es válido, cambiar de página
-            if (correo && contrasena && nombreUsuario && captcha) {
+            document.getElementById('paginaInicio').style.opacity = 0;
+            setTimeout(() => {
                 document.getElementById('paginaInicio').style.display = 'none';
                 document.getElementById('paginaBusqueda').style.display = 'block';
-            } else {
-                alert('Por favor, ingresa todos los datos correctamente.');
-            }
+                document.getElementById('paginaBusqueda').style.opacity = 1;
+            }, 500);
+
+            // Guardar correo y nombre de usuario
+            document.getElementById('correoUsuario').textContent = correo;
+            document.getElementById('usuario').textContent = nombreUsuario;
         }
+
         // Cerrar sesión
         function cerrarSesion() {
+            document.getElementById('paginaBusqueda').style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById('paginaBusqueda').style.display = 'none';
+                document.getElementById('paginaInicio').style.display = 'block';
+                document.getElementById('paginaInicio').style.opacity = 1;
+            }, 500);
+        }
+
+        // Mostrar carrito
+        function mostrarCarrito() {
+            document.getElementById('carrito').style.display = 'block';
             document.getElementById('paginaBusqueda').style.display = 'none';
-            document.getElementById('paginaInicio').style.display = 'block';
+
+            // Mostrar productos en el carrito
+            let productosHTML = '';
+            carrito.forEach(item => {
+                productosHTML += `<div class="producto"><img src="https://via.placeholder.com/80" alt="${item.nombre}" /><p>${item.nombre} - $${item.precio}</p></div>`;
+            });
+            document.getElementById('productosCarrito').innerHTML = productosHTML;
+            document.getElementById('totalCarrito').textContent = total;
+        }
+
+        // Agregar productos al carrito
+        function agregarCarrito(nombre, precio) {
+            carrito.push({ nombre, precio });
+            total += precio;
+        }
+
+        // Vaciar carrito
+        function vaciarCarrito() {
+            carrito = [];
+            total = 0;
+            document.getElementById('productosCarrito').innerHTML = '';
+            document.getElementById('totalCarrito').textContent = total;
+        }
+
+        // Realizar compra
+        function realizarCompra() {
+            alert('Compra realizada con éxito');
+            vaciarCarrito();
+            cerrarSesion();
+        }
+
+        // Regresar a la página de búsqueda
+        function regresarBusqueda() {
+            document.getElementById('carrito').style.display = 'none';
+            document.getElementById('paginaBusqueda').style.display = 'block';
+        }
+
+        // Mostrar configuración
+        function mostrarConfiguracion() {
+            document.getElementById('configuracion').style.display = 'block';
+            document.getElementById('paginaBusqueda').style.display = 'none';
         }
     </script>
 
