@@ -19,19 +19,16 @@ h2 {
 }
 
 nav {
-    background: #2c3e50;
     padding: 15px;
     text-align: center;
 }
 
 nav a {
-    color: #ecf0f1;
     text-decoration: none;
     margin: 0 20px;
 }
 
 .container {
-    background: #fff;
     padding: 20px;
     text-align: center;
 }
