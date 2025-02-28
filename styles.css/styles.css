@@ -1,3 +1,4 @@
+/* Estilo general del body */
 body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background: #f4f5f7;
 }
 
+/* Estilo del encabezado principal */
 h1 {
     color: #4a90e2;
     text-align: center;
@@ -12,12 +14,14 @@ h1 {
     font-size: 48px;
 }
 
+/* Estilo del encabezado secundario */
 h2 {
     color: #333;
     text-align: center;
     font-size: 24px;
 }
 
+/* Estilo del menú de navegación */
 nav {
     padding: 15px;
     text-align: center;
@@ -26,13 +30,21 @@ nav {
 nav a {
     text-decoration: none;
     margin: 0 20px;
+    color: #3498db; /* Color azul de los enlaces */
+    font-size: 16px;
 }
 
+nav a:hover {
+    color: #2980b9; /* Hover en enlaces para un efecto sutil */
+}
+
+/* Contenedor principal de la página */
 .container {
     padding: 20px;
     text-align: center;
 }
 
+/* Estilo del contenedor de búsqueda */
 .search-container {
     display: flex;
     justify-content: center;
@@ -40,21 +52,26 @@ nav a {
     position: relative;
 }
 
+/* Estilos para los inputs y botones */
 input, button {
     padding: 12px;
     border-radius: 5px;
     font-size: 16px;
 }
 
+/* Estilo para el botón de búsqueda */
 button {
     background: #3498db;
     color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 button:hover {
     background: #2980b9;
 }
 
+/* Estilo del formulario de registro */
 #formularioRegistro {
     display: none;
     position: fixed;
@@ -65,34 +82,53 @@ button:hover {
     width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+    z-index: 1000; /* Asegura que el formulario esté por encima de otros elementos */
 }
 
 #formularioRegistro input {
     width: 100%;
     margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #formularioRegistro button {
     width: 100%;
     background: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
+#formularioRegistro button:hover {
+    background: #45a049; /* Efecto hover para el botón */
+}
+
+/* Estilo del botón de cancelación */
 #formularioRegistro .cancel-button {
     background: #e74c3c;
 }
 
+#formularioRegistro .cancel-button:hover {
+    background: #c0392b;
+}
+
+/* Estilo del campo de captcha */
 #formularioRegistro .captcha {
     margin-top: 15px;
 }
 
+/* Estilo del icono de búsqueda dentro del input */
 .search-container button img {
     width: 20px;
     height: 20px;
     position: absolute;
     bottom: 10px;
-    left: 10px; /* Lupita en la esquina inferior izquierda */
+    left: 10px;
 }
 
+/* Estilo para la navegación de la página de búsqueda */
 #paginaBusqueda nav {
     position: fixed;
     top: 0;
@@ -101,16 +137,73 @@ button:hover {
     background: #2c3e50;
     padding: 10px;
     text-align: center;
+    z-index: 1000; /* Asegura que la barra de navegación esté siempre visible */
 }
 
 #paginaBusqueda nav a {
     color: #ecf0f1;
     text-decoration: none;
     margin: 0 20px;
+    font-size: 16px;
 }
 
+#paginaBusqueda nav a:hover {
+    color: #3498db;
+}
+
+/* Estilos para el carrito de compras */
 #carrito {
     margin-top: 30px;
     text-align: left;
     padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border-radius: 8px;
+}
+
+#carrito h2 {
+    color: #3498db;
+    font-size: 24px;
+}
+
+#carrito h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+#carrito button {
+    background: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#carrito button:hover {
+    background: #2980b9;
+}
+
+/* Diseño responsive para móviles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px; /* Ajuste de tamaño de fuente para móviles */
+    }
+
+    h2 {
+        font-size: 20px; /* Ajuste de tamaño de fuente para móviles */
+    }
+
+    #formularioRegistro {
+        width: 90%;
+        left: 5%;
+        top: 15%;
+    }
+
+    .search-container input {
+        width: 80%; /* Aumenta el tamaño del input en pantallas pequeñas */
+    }
+
+    .search-container button {
+        width: 20%; /* Ajusta el tamaño del botón para pantallas pequeñas */
+    }
 }

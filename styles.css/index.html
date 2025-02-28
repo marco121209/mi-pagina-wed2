@@ -8,11 +8,12 @@
     <style>
         /* Estilo para poner la imagen de fondo */
         #paginaInicio {
-            background-image: url('https://images.unsplash.com/photo-1593642634367-d91a135587b5');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            background-image: url('imagen.JPG');  /* Imagen de fondo */
+            background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat;  /* No repetir la imagen */
             height: 100vh;  /* Asegura que ocupe toda la altura de la pantalla */
+            width: 100%;  /* Asegura que ocupe todo el ancho de la pantalla */
             color: white;  /* Texto en blanco para resaltar sobre el fondo */
             text-align: center; /* Centrar el texto */
             padding: 20px;  /* Para dar algo de espacio alrededor */
@@ -39,7 +40,7 @@
             <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
         </div>
         <div class="container">
-            <h2>Celulares y tablets a tu medida ven y conoce TECPHONE</h2>
+            <h2>Celulares y tablets a tu medida ven y conoce TECPHONES</h2>
             <h2>Se te cayo el celular? no te preocupes ven y encuentra ese celular que deseas a un precio accesible</h2>
         </div>
     </div>
@@ -122,92 +123,72 @@
             document.getElementById('formularioRegistro').style.display = 'none';
         }
 
-        // Iniciar sesión con validación
+        // Iniciar sesión
         function iniciarSesion() {
             const correo = document.getElementById('correo').value;
             const contrasena = document.getElementById('contrasena').value;
             const nombreUsuario = document.getElementById('nombreUsuario').value;
-            const captcha = document.getElementById('captcha').checked;
 
-            // Validación de correo
-            const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!regexEmail.test(correo)) {
-                document.getElementById('errorCorreo').style.display = 'block';
-                return;
+            if (correo && contrasena && nombreUsuario) {
+                alert(`Bienvenido, ${nombreUsuario}!`);
+                cerrarFormulario();
+                mostrarPaginaBusqueda();
             } else {
-                document.getElementById('errorCorreo').style.display = 'none';
+                alert("Por favor complete todos los campos.");
             }
+        }
 
-            // Validar captcha
-            if (!captcha) {
-                alert('Por favor, verifica que no eres un robot.');
-                return;
-            }
-
-            // Validar nombre de usuario
-            if (!nombreUsuario) {
-                document.getElementById('errorUsuario').style.display = 'block';
-                return;
-            } else {
-                document.getElementById('errorUsuario').style.display = 'none';
-            }
-
-            // Si todo es válido, cambiar de página
-            document.getElementById('paginaInicio').style.opacity = 0;
-            setTimeout(() => {
-                document.getElementById('paginaInicio').style.display = 'none';
-                document.getElementById('paginaBusqueda').style.display = 'block';
-                document.getElementById('paginaBusqueda').style.opacity = 1;
-            }, 500);
-
-            // Guardar correo y nombre de usuario
-            document.getElementById('correoUsuario').textContent = correo;
-            document.getElementById('usuario').textContent = nombreUsuario;
+        // Mostrar página de búsqueda
+        function mostrarPaginaBusqueda() {
+            document.getElementById('paginaInicio').style.display = 'none';
+            document.getElementById('paginaBusqueda').style.display = 'block';
         }
 
         // Cerrar sesión
         function cerrarSesion() {
-            document.getElementById('paginaBusqueda').style.opacity = 0;
-            setTimeout(() => {
-                document.getElementById('paginaBusqueda').style.display = 'none';
-                document.getElementById('paginaInicio').style.display = 'block';
-                document.getElementById('paginaInicio').style.opacity = 1;
-            }, 500);
+            alert('Sesión cerrada');
+            document.getElementById('paginaBusqueda').style.display = 'none';
+            document.getElementById('paginaInicio').style.display = 'block';
         }
 
         // Mostrar carrito
         function mostrarCarrito() {
-            document.getElementById('carrito').style.display = 'block';
             document.getElementById('paginaBusqueda').style.display = 'none';
-
-            // Mostrar productos en el carrito
-            let productosHTML = '';
-            carrito.forEach(item => {
-                productosHTML += `<div class="producto"><img src="https://via.placeholder.com/80" alt="${item.nombre}" /><p>${item.nombre} - $${item.precio}</p></div>`;
-            });
-            document.getElementById('productosCarrito').innerHTML = productosHTML;
-            document.getElementById('totalCarrito').textContent = total;
+            document.getElementById('carrito').style.display = 'block';
         }
 
         // Agregar productos al carrito
-        function agregarCarrito(nombre, precio) {
-            carrito.push({ nombre, precio });
+        function agregarCarrito(producto, precio) {
+            carrito.push({ producto, precio });
             total += precio;
+            actualizarCarrito();
+        }
+
+        // Actualizar carrito
+        function actualizarCarrito() {
+            let productosHTML = '';
+            carrito.forEach(item => {
+                productosHTML += `<p>${item.producto} - $${item.precio}</p>`;
+            });
+            document.getElementById('productosCarrito').innerHTML = productosHTML;
+            document.getElementById('totalCarrito').innerText = total;
         }
 
         // Vaciar carrito
         function vaciarCarrito() {
             carrito = [];
             total = 0;
-            document.getElementById('productosCarrito').innerHTML = '';
-            document.getElementById('totalCarrito').textContent = total;
+            actualizarCarrito();
         }
 
         // Realizar compra
         function realizarCompra() {
-            alert('Compra realizada con éxito');
-            vaciarCarrito();
-            cerrarSesion();
+            if (carrito.length > 0) {
+                alert('Compra realizada con éxito!');
+                vaciarCarrito();
+            } else {
+                alert('Tu carrito está vacío.');
+            }
         }
 
         // Regresar a la página de búsqueda
@@ -215,13 +196,6 @@
             document.getElementById('carrito').style.display = 'none';
             document.getElementById('paginaBusqueda').style.display = 'block';
         }
-
-        // Mostrar configuración
-        function mostrarConfiguracion() {
-            document.getElementById('configuracion').style.display = 'block';
-            document.getElementById('paginaBusqueda').style.display = 'none';
-        }
     </script>
-
 </body>
 </html>
