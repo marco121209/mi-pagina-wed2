@@ -3,21 +3,26 @@ body {
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f4f5f7;
+    background: #fdf8f8;
+    box-sizing: border-box;
 }
 
-/* Estilo del encabezado principal */
-h1 {
-    color: #4a90e2;
+/* Asegurarnos de que los textos en la página de inicio sean negros */
+#paginaInicio h1, #paginaInicio h2 {
+    color: #000 !important;  /* Usamos !important para asegurar que se aplique el color negro */
     text-align: center;
+}
+
+/* Estilo del encabezado principal (TECPHONES) */
+#paginaInicio h1 {
+    color: #000 !important;  /* Aseguramos que "TECPHONES" esté en negro */
     margin-top: 80px;
     font-size: 48px;
 }
 
-/* Estilo del encabezado secundario */
-h2 {
-    color: #333;
-    text-align: center;
+/* Estilo del encabezado secundario (subtítulos en la página de inicio) */
+#paginaInicio h2 {
+    color: #000 !important;  /* Aseguramos que los subtítulos también estén en negro */
     font-size: 24px;
 }
 
@@ -30,12 +35,12 @@ nav {
 nav a {
     text-decoration: none;
     margin: 0 20px;
-    color: #3498db; /* Color azul de los enlaces */
+    color: #140857; /* Color azul de los enlaces */
     font-size: 16px;
 }
 
 nav a:hover {
-    color: #2980b9; /* Hover en enlaces para un efecto sutil */
+    color: #1abc9c; /* Hover en enlaces para un contraste más visible */
 }
 
 /* Contenedor principal de la página */
@@ -48,8 +53,8 @@ nav a:hover {
 .search-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 30px;
-    position: relative;
 }
 
 /* Estilos para los inputs y botones */
@@ -57,32 +62,53 @@ input, button {
     padding: 12px;
     border-radius: 5px;
     font-size: 16px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* Estilo para el input de búsqueda */
+.search-container input {
+    width: 60%;
+    max-width: 400px;
+    padding-left: 10px;
 }
 
 /* Estilo para el botón de búsqueda */
-button {
+.search-container button {
     background: #3498db;
     color: #fff;
     border: none;
     cursor: pointer;
+    padding: 12px 15px;
+    margin-left: 5px;
+    border-radius: 5px; /* Añadido border-radius */
 }
 
-button:hover {
+.search-container button:hover {
     background: #2980b9;
+}
+
+/* Ícono de búsqueda dentro del botón */
+.search-container button img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 /* Estilo del formulario de registro */
 #formularioRegistro {
     display: none;
     position: fixed;
-    top: 20%;
-    left: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #fff;
     padding: 30px;
-    width: 400px;
+    width: 90%;
+    max-width: 400px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, .3);
-    z-index: 1000; /* Asegura que el formulario esté por encima de otros elementos */
+    z-index: 1000;
 }
 
 #formularioRegistro input {
@@ -99,15 +125,18 @@ button:hover {
     color: #fff;
     border: none;
     cursor: pointer;
+    padding: 12px;
+    border-radius: 5px; /* Añadido border-radius */
 }
 
 #formularioRegistro button:hover {
-    background: #45a049; /* Efecto hover para el botón */
+    background: #45a049;
 }
 
 /* Estilo del botón de cancelación */
 #formularioRegistro .cancel-button {
     background: #e74c3c;
+    border-radius: 5px; /* Añadido border-radius */
 }
 
 #formularioRegistro .cancel-button:hover {
@@ -119,15 +148,6 @@ button:hover {
     margin-top: 15px;
 }
 
-/* Estilo del icono de búsqueda dentro del input */
-.search-container button img {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-}
-
 /* Estilo para la navegación de la página de búsqueda */
 #paginaBusqueda nav {
     position: fixed;
@@ -137,7 +157,7 @@ button:hover {
     background: #2c3e50;
     padding: 10px;
     text-align: center;
-    z-index: 1000; /* Asegura que la barra de navegación esté siempre visible */
+    z-index: 1000;
 }
 
 #paginaBusqueda nav a {
@@ -148,12 +168,14 @@ button:hover {
 }
 
 #paginaBusqueda nav a:hover {
-    color: #3498db;
+    color: #1abc9c; /* Cambio para un contraste más visible */
 }
 
 /* Estilos para el carrito de compras */
 #carrito {
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 90%;
+    max-width: 600px;
     text-align: left;
     padding: 20px;
     background: #fff;
@@ -177,6 +199,7 @@ button:hover {
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px; /* Añadido border-radius */
 }
 
 #carrito button:hover {
@@ -186,24 +209,30 @@ button:hover {
 /* Diseño responsive para móviles */
 @media (max-width: 768px) {
     h1 {
-        font-size: 36px; /* Ajuste de tamaño de fuente para móviles */
+        font-size: 36px;
     }
 
     h2 {
-        font-size: 20px; /* Ajuste de tamaño de fuente para móviles */
+        font-size: 20px;
     }
 
     #formularioRegistro {
         width: 90%;
-        left: 5%;
-        top: 15%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .search-container {
+        flex-direction: column;
     }
 
     .search-container input {
-        width: 80%; /* Aumenta el tamaño del input en pantallas pequeñas */
+        width: 100%;
+        margin-bottom: 10px;
     }
 
     .search-container button {
-        width: 20%; /* Ajusta el tamaño del botón para pantallas pequeñas */
+        width: 100%;
     }
 }
