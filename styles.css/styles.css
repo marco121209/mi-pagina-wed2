@@ -7,10 +7,31 @@ body {
     box-sizing: border-box;
 }
 
-/* Asegurarnos de que los textos en la página de inicio sean negros */
-#paginaInicio h1, #paginaInicio h2 {
-    color: #000 !important;  /* Usamos !important para asegurar que se aplique el color negro */
-    text-align: center;
+/* Estilo para el video de fondo */
+#paginaInicio {
+    position: relative;
+    height: 100vh;  /* Asegura que ocupe toda la altura de la pantalla */
+    width: 100%;  /* Asegura que ocupe todo el ancho de la pantalla */
+    overflow: hidden; /* Para evitar el desbordamiento del video */
+}
+
+/* Video de fondo */
+#videoFondo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el video */
+    width: 100%;  /* Asegura que el video cubra toda la pantalla */
+    height: 100vh;  /* Asegura que el video ocupe toda la altura de la pantalla */
+    object-fit: cover;  /* Mantiene la proporción del video */
+    z-index: -1; /* Envía el video al fondo */
+}
+
+/* Estilo para los textos sobre el video */
+#paginaInicio h1, #paginaInicio h2, #paginaInicio nav, #paginaInicio .container {
+    color: white;  /* Texto blanco para resaltar sobre el fondo */
+    text-align: center; /* Centrar el texto */
+    z-index: 1;  /* Asegura que el texto esté sobre el video */
 }
 
 /* Estilo del encabezado principal (TECPHONES) */
@@ -148,29 +169,6 @@ input, button {
     margin-top: 15px;
 }
 
-/* Estilo para la navegación de la página de búsqueda */
-#paginaBusqueda nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #2c3e50;
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
-}
-
-#paginaBusqueda nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    margin: 0 20px;
-    font-size: 16px;
-}
-
-#paginaBusqueda nav a:hover {
-    color: #1abc9c; /* Cambio para un contraste más visible */
-}
-
 /* Estilos para el carrito de compras */
 #carrito {
     margin: 30px auto;
@@ -204,6 +202,29 @@ input, button {
 
 #carrito button:hover {
     background: #2980b9;
+}
+
+/* Estilo para la navegación de la página de búsqueda */
+#paginaBusqueda nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #2c3e50;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#paginaBusqueda nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 16px;
+}
+
+#paginaBusqueda nav a:hover {
+    color: #1abc9c; /* Cambio para un contraste más visible */
 }
 
 /* Diseño responsive para móviles */

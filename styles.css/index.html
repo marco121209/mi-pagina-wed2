@@ -5,42 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TECPHONES</title>
     <link rel="stylesheet" href="styles.css">  <!-- Enlace al archivo CSS -->
-    <style>
-        /* Estilo para el video de fondo */
-        #paginaInicio {
-            position: relative;
-            height: 100vh;  /* Asegura que ocupe toda la altura de la pantalla */
-            width: 100%;  /* Asegura que ocupe todo el ancho de la pantalla */
-            overflow: hidden; /* Para evitar el desbordamiento de video */
-        }
-
-        /* Video de fondo */
-        #videoFondo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Centra el video */
-            width: 100%;  /* Asegura que el video cubra toda la pantalla */
-            height: 100%;  /* Asegura que el video cubra toda la pantalla */
-            object-fit: cover;  /* Mantiene la proporción del video */
-            z-index: -1; /* Envía el video al fondo */
-        }
-
-        /* Estilos de texto sobre el video */
-        #paginaInicio h1, #paginaInicio h2, #paginaInicio nav, #paginaInicio .container {
-            color: white;  /* Texto blanco para resaltar sobre el fondo */
-            text-align: center; /* Centrar el texto */
-            z-index: 1;  /* Asegura que el texto esté sobre el video */
-        }
-
-        /* Media query para dispositivos con pantallas pequeñas (móviles y tabletas) */
-        @media screen and (max-width: 768px) {
-            #paginaInicio {
-                background-size: contain;  /* Ajusta la imagen para que quepa en pantallas pequeñas */
-                background-position: top center; /* Asegura que el top de la imagen se vea primero */
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -54,7 +18,7 @@
 
         <h1>TECPHONES</h1>
         <nav><a href="#" onclick="mostrarFormulario()">Regístrate</a></nav>
-        <div id="formularioRegistro" style="display: none; ">
+        <div id="formularioRegistro" style="display: none;">
             <h3>Iniciar Sesión</h3>
             <input type="email" id="correo" placeholder="Correo electrónico" required>
             <div id="errorCorreo" class="error"></div>
@@ -90,20 +54,60 @@
         <!-- Información sobre los celulares -->
         <div id="celulares">
             <h3>Modelos Disponibles</h3>
+
+            <!-- Producto 1 -->
             <div class="producto">
-                <img src="fondo.JPG" alt="celular 1" />
+                <img src="fondo.JPG" alt="Celular 1" />
                 <div>
                     <h4>REALME GT 7 PRO</h4>
                     <p>Precio: $14,699</p>
                     <button onclick="agregarCarrito('REALME GT 7 PRO', 14,699)">Agregar al carrito</button>
                 </div>
             </div>
+
+            <!-- Producto 2 -->
             <div class="producto">
                 <img src="foto1.jpg" alt="Celular 2">
                 <div>
+<<<<<<< HEAD
                     <h4>HONOR MAGIC 7 PRO</h4>
                     <p>Precio: $29,999</p>
                     <button onclick="agregarCarrito('HONOR MAGIC 7 PRO', 29,999)">Agregar al carrito</button>
+=======
+                    <h4>HONOR MAGIC 7 LITE</h4>
+                    <p>Precio: $5,820</p>
+                    <button onclick="agregarCarrito('HONOR MAGIC 7 LITE', 5820)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="producto">
+                <img src="celular3.jpg" alt="Celular 3">
+                <div>
+                    <h4>Samsung Galaxy S22</h4>
+                    <p>Precio: $1,299</p>
+                    <button onclick="agregarCarrito('Samsung Galaxy S22', 1299)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="producto">
+                <img src="celular4.jpg" alt="Celular 4">
+                <div>
+                    <h4>iPhone 13 Pro</h4>
+                    <p>Precio: $1,099</p>
+                    <button onclick="agregarCarrito('iPhone 13 Pro', 1099)">Agregar al carrito</button>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="producto">
+                <img src="celular5.jpg" alt="Celular 5">
+                <div>
+                    <h4>Xiaomi Redmi Note 11</h4>
+                    <p>Precio: $220</p>
+                    <button onclick="agregarCarrito('Xiaomi Redmi Note 11', 220)">Agregar al carrito</button>
+>>>>>>> 853da77 (subo las imagenes)
                 </div>
             </div>
         </div>
@@ -116,7 +120,7 @@
         <h3>Total: $<span id="totalCarrito">0</span></h3>
         <button onclick="vaciarCarrito()">Vaciar Carrito</button>
         <button onclick="realizarCompra()">Realizar Compra</button>
-        <button onclick="regresarBusqueda()">Retroceso</button> <!-- Botón de regreso -->
+        <button onclick="regresarBusqueda()">Retroceso</button>
     </div>
 
     <!-- Configuración -->
