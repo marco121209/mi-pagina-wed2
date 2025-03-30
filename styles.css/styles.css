@@ -154,131 +154,93 @@ input, button {
     background: #45a049;
 }
 
-/* Estilo del botón de cancelación */
-#formularioRegistro .cancel-button {
-    background: #e74c3c;
-    border-radius: 5px; /* Añadido border-radius */
+/* Estilo para los errores del formulario */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
 }
 
-#formularioRegistro .cancel-button:hover {
-    background: #c0392b;
+/* Estilos de los productos en la página de búsqueda */
+.producto {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
 }
 
-/* Estilo del campo de captcha */
-#formularioRegistro .captcha {
-    margin-top: 15px;
-}
-
-/* Estilos para el carrito de compras */
-#carrito {
-    margin: 30px auto;
-    width: 90%;
-    max-width: 600px;
-    text-align: left;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    border-radius: 8px;
-}
-
-#carrito h2 {
-    color: #3498db;
-    font-size: 24px;
-}
-
-#carrito h3 {
-    color: #333;
-    font-size: 18px;
-}
-
-#carrito button {
-    background: #3498db;
-    color: #fff;
+/* Estilos de los botones de los productos */
+.producto button {
+    background-color: #2ecc71;
+    color: white;
     border: none;
     padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    border-radius: 5px; /* Añadido border-radius */
 }
 
-#carrito button:hover {
-    background: #2980b9;
+.producto button:hover {
+    background-color: #27ae60;
 }
 
-/* Estilo para la navegación de la página de búsqueda */
-#paginaBusqueda nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #2c3e50;
-    padding: 10px;
-    text-align: center;
-    z-index: 1000;
+/* Estilo del carrito */
+#Carrito {
+    padding: 20px;
+    display: none;  /* Inicialmente oculto */
 }
 
+/* Estilo del contenedor de la configuración */
+#configuracion {
+    padding: 20px;
+    display: none;  /* Inicialmente oculto */
+}
+
+#configuracion h3, #configuracion h4 {
+    margin-bottom: 10px;
+}
+
+#configuracion ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#configuracion li {
+    margin: 5px 0;
+}
+
+#configuracion button {
+    background-color: #e74c3c;
+    color: white;
+    border: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#configuracion button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilos generales para el carrito y la configuración */
+#Carrito, #configuracion {
+    display: none;  /* Asegurarse de que se mantengan ocultos hasta ser activados */
+}
+
+/* Estilos para los enlaces en la página de búsqueda */
 #paginaBusqueda nav a {
-    color: #ecf0f1;
-    text-decoration: none;
-    margin: 0 20px;
+    color: #140857;
     font-size: 16px;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 #paginaBusqueda nav a:hover {
-    color: #1abc9c; /* Cambio para un contraste más visible */
+    color: #1abc9c;
 }
 
-/* Diseño responsive para móviles */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 36px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    #formularioRegistro {
-        width: 90%;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .search-container {
-        flex-direction: column;
-    }
-
-    .search-container input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .search-container button {
-        width: 100%;
-    }
+/* Estilo del total en el carrito */
+#totalCarrito {
+    font-weight: bold;
+    font-size: 24px;
 }
-
-/* Estilo para el video de fondo */
-#paginaInicio {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 20px; /* Redondea los bordes de la sección de inicio */
-}
-
-button {
-    border-radius: 10px; /* Redondea los bordes de los botones */
-}
-
-.producto {
-    border-radius: 15px; /* Redondea los bordes de los productos */
-    overflow: hidden; /* Asegura que el contenido no se salga de los bordes redondeados */
-}
-
-#formularioRegistro {
-    border-radius: 10px; /* Redondea los bordes del formulario */
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Añade un fondo semitransparente */
-}
-

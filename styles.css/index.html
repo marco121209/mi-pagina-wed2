@@ -17,7 +17,9 @@
         </video>
 
         <h1>TECPHONES</h1>
-        <nav><a href="#" onclick="mostrarFormulario()">Regístrate</a></nav>
+        <nav>
+            <a href="#" onclick="mostrarFormulario()">Regístrate</a>
+        </nav>
         <div id="formularioRegistro" style="display: none;">
             <h3>Iniciar Sesión</h3>
             <input type="email" id="correo" placeholder="Correo electrónico" required>
@@ -46,8 +48,27 @@
             <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
             <a href="#">Tu inicio</a>
         </nav>
+
+        <!-- Filtros de búsqueda -->
+        <div class="filtros">
+            <select id="filtroMarca" onchange="filtrarBusqueda()">
+                <option value="">Filtrar por Marca</option>
+                <option value="realme">Realme</option>
+                <option value="honor">Honor</option>
+                <option value="samsung">Samsung</option>
+                <option value="iphone">iPhone</option>
+                <option value="xiaomi">Xiaomi</option>
+            </select>
+            <select id="filtroPrecio" onchange="filtrarBusqueda()">
+                <option value="">Filtrar por Precio</option>
+                <option value="bajo">Menor a $20,000</option>
+                <option value="medio">$20,000 - $30,000</option>
+                <option value="alto">Mayor a $30,000</option>
+            </select>
+        </div>
+
         <div class="search-container">
-            <input type="text" placeholder="Buscar celular...">
+            <input type="text" placeholder="Buscar celular..." id="searchInput" onkeyup="filtrarBusqueda()">
             <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
         </div>
 
@@ -56,127 +77,80 @@
             <h3>Modelos Disponibles</h3>
 
             <!-- Producto 1 -->
-            <div class="producto">
+            <div class="producto" data-marca="realme" data-precio="14699">
                 <img src="fondo.JPG" alt="Celular 1" />
                 <div>
                     <h4>REALME GT 7 PRO</h4>
                     <p>Precio: $14,699</p>
-                    <button onclick="agregarCarrito('REALME GT 7 PRO', 14,699)">Agregar al carrito</button>
+                    <button onclick="agregarCarrito('REALME GT 7 PRO', 14699)">Agregar al carrito</button>
                 </div>
             </div>
 
             <!-- Producto 2 -->
-            <div class="producto">
+            <div class="producto" data-marca="honor" data-precio="29999">
                 <img src="foto1.jpg" alt="Celular 2">
                 <div>
                     <h4>Honor Magic 7 Pro</h4>
                     <p>Precio: $29,999</p>
-                    <button onclick="agregarCarrito('Honor Magic 7 Pro', 29,999)">Agregar al carrito</button>
+                    <button onclick="agregarCarrito('Honor Magic 7 Pro', 29999)">Agregar al carrito</button>
                 </div>
             </div>
 
             <!-- Producto 3 -->
-            <div class="producto">
+            <div class="producto" data-marca="samsung" data-precio="32999">
                 <img src="celular3.jpg" alt="Celular 3">
                 <div>
                     <h4>Samsung Galaxy S25 Ultra</h4>
                     <p>Precio: $32,999</p>
-                    <button onclick="agregarCarrito('Samsung Galaxy S25 Ultra', 32,999)">Agregar al carrito</button>
+                    <button onclick="agregarCarrito('Samsung Galaxy S25 Ultra', 32999)">Agregar al carrito</button>
                 </div>
             </div>
 
             <!-- Producto 4 -->
-            <div class="producto">
+            <div class="producto" data-marca="iphone" data-precio="25999">
                 <img src="celular4.jpg" alt="Celular 4">
                 <div>
                     <h4>iPhone 16 Pro Max</h4>
                     <p>Precio: $25,999</p>
-                    <button onclick="agregarCarrito('iPhone 16 Pro Max', 25,999)">Agregar al carrito</button>
+                    <button onclick="agregarCarrito('iPhone 16 Pro Max', 25999)">Agregar al carrito</button>
                 </div>
             </div>
 
-           <!-- Producto 5 -->
-            <div class="producto">
+            <!-- Producto 5 -->
+            <div class="producto" data-marca="xiaomi" data-precio="24599">
                 <img src="celular5.jpg" alt="celular 5">
-            </div>
+                <div>
                     <h4>Xiaomi 14 Ultra</h4>
                     <p>Precio: $24,599</p>
-                    <button onclick="agregarCarrito('Xiaomi 14 Ultra' , 24,599)">Agregar al carrito</button>
-                 </div>
-            </div>
-
-            <!-- producto 6 -->
-            <div class="producto">
-                <img src="OIP (3).jpg" alt="celular 6">
-            </div>
-                    <h4>Huawei Pura 70 Ultra</h4>
-                    <p>Precio: $20,499</p>
-                    <button onclick="agregarCarrito('Huawei Pura 70 Ultra' , 20,499)">Agregar al carrito</button>
+                    <button onclick="agregarCarrito('Xiaomi 14 Ultra', 24599)">Agregar al carrito</button>
                 </div>
             </div>
-    
-            <!-- producto 7 --> 
-            <div class="producto">
-                <img src="OIP (4).jpg" alt="celular 7">
-            </div>  
-                    <h4>Vivo X200 Pro</h4>
-                    <p>Precio: $26,999</p>
-                    <button onclick="agregarCarrito('Vivo X200 Pro' , 26,999)">Agregar al carrito</button>
+        </div>
+
+        <!-- Carrito -->
+        <div id="Carrito" style="display:none;">
+            <h2>Tu Carrito</h2>
+            <div id="productosCarrito"></div>
+            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button onclick="realizarCompra()">Realizar Compra</button>
+            <button onclick="regresarBusqueda()">Retroceder</button>
+            <h3>Total: $<span id="totalCarrito">0</span></h3>
+        </div>
+
+        <!-- Configuración -->
+        <div id="configuracion" style="display:none;">
+            <h3>Configuración de la cuenta</h3>
+            <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+            <p><strong>Nombre de Usuario:</strong> <span id="usuario"></span></p>
+            <h4>Privacidad</h4>
+            <ul>
+                <li><a href="#">Cambiar Contraseña</a></li>
+                <li><a href="#">Gestionar Privacidad</a></li>
+            </ul>
+            <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
         </div>
     </div>
 
-            <!-- producto 8 -->
-            <div class="producto">
-                <img src="OIP (5).jpg" alt="celular 8">
-            </div>
-                    <h4>Asus Rog Phone 9 Pro</h4>
-                    <p>Precio: $27,999</p>
-                    <button onclick="agregarCarrito('Asus Rog Phone 9 Pro' , 27,999)">Agregar al carrito</button>
-        </div>
-    </div>
-
-            <!-- producto 9 -->
-            <div class="producto">
-                <img src="OIP (6).jpg" alt="celular 9">
-             </div>
-                    <h4>Oppo Find X8 Pro</h4>
-                    <p>Precio: $24,999</p>
-                    <button onclick="agregarCarrito('Oppo Find X8 Pro' , 24,999)">Agregar al carrito</button>
-            </div>
-        </div>
-
-            <!-- producto 10 -->
-             <div class="producto">
-                <img src="OIP.jpg" alt="celular 10">
-             </div>
-                    <h4>Google Pixel 9 Pro</h4>
-                    <p>Precio: $20,999</p>
-                    <button onclick="agregarCarrito('Google Pixel 9 Pro , 20,999')">Agregar al carrito</button>
-            </div>
-        </div>
-
-         <!-- Carrito -->
-    <div id="carrito" style="display:none;">
-        <h2>Tu Carrito</h2>
-        <div id="productosCarrito"></div>
-        <h3>Total: $<span id="totalCarrito">0</span></h3>
-        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <button onclick="realizarCompra()">Realizar Compra</button>
-        <button onclick="regresarBusqueda()">Retroceso</button>
-    </div>
-
-    <!-- Configuración -->
-    <div id="configuracion" style="display:none;">
-        <h3>Configuración de la cuenta</h3>
-        <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
-        <p><strong>Nombre de Usuario:</strong> <span id="usuario"></span></p>
-        <h4>Privacidad</h4>
-        <ul>
-            <li><a href="#">Cambiar Contraseña</a></li>
-            <li><a href="#">Gestionar Privacidad</a></li>
-        </ul>
-    </div>
-    
     <script src="script.js"></script> <!-- Enlace al archivo JS -->
 </body>
 </html>
