@@ -20,6 +20,8 @@
         <nav>
             <a href="#" onclick="mostrarFormulario()">Regístrate</a>
         </nav>
+        
+        <!-- Formulario de Registro / Inicio de sesión -->
         <div id="formularioRegistro" style="display: none;">
             <h3>Iniciar Sesión</h3>
             <input type="email" id="correo" placeholder="Correo electrónico" required>
@@ -33,9 +35,10 @@
             </div>
             <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
         </div>
+        
         <div class="container">
             <h2>Celulares y tablets a tu medida ven y conoce TECPHONES</h2>
-            <h2>Se te cayo el celular? no te preocupes ven y encuentra ese celular que deseas a un precio accesible</h2>
+            <h2>¿Se te cayó el celular? No te preocupes, ven y encuentra ese celular que deseas a un precio accesible</h2>
         </div>
     </div>
 
@@ -72,23 +75,51 @@
             <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
         </div>
 
-        <!-- Información sobre los celulares -->
-        <div id="celulares">
-            <h3>Modelos Disponibles</h3>
-
+        <!-- Productos -->
+        <div class="productos">
             <!-- Producto 1 -->
-            <div class="producto" data-marca="realme" data-precio="14699">
-                <img src="fondo.JPG" alt="Celular 1" />
+            <div class="producto" onclick="mostrarModal()">
+                <img src="fondo.JPG" alt="Realme GT 7 Pro">
                 <div>
-                    <h4>REALME GT 7 PRO</h4>
-                    <p>Precio: $14,699</p>
-                    <button onclick="agregarCarrito('REALME GT 7 PRO', 14699)">Agregar al carrito</button>
+                    <h4>Realme GT 7 Pro</h4>
+                    <p>Precio: $30,000</p>
+                </div>
+            </div>
+
+            <!-- Modal con características del Producto 1 -->
+            <div id="myModal" class="modal" style="display:none;">
+                <div class="modal-content">
+                    <!-- Boton de cerrar -->
+                     <span class="close" onclick="cerrarModal()"></span>
+                    <span class="close" onclick="cerrarModal()">&times;</span>
+                    <img src="fondo.JPG" alt="Realme GT 7 Pro">
+                    <div class="detalles">
+                        <h3>Características del Celular</h3>
+                        <ul>
+                            <li><strong>Pantalla:</strong> 6.78 pulgadas AMOLED con tecnología OLED Plus, 2780 x 1264 píxeles (1,5k), 120 Hz, HDR10+, 6500 nits</li>
+                            <li><strong>Procesador:</strong> Qualcomm Snapdragon 8 Elite</li>
+                            <li><strong>Memoria:</strong> 12GB/16GB de RAM, 256GB/512GB/1TB de almacenamiento</li>
+                            <li><strong>Cámaras:</strong>
+                                <ul>
+                                    <li>Cámara Principal: 50 MP con apertura f/1.8 y estabilización óptica (OIS)</li>
+                                    <li>Teleobjetivo periscópico: 50 MP con apertura f/2.65</li>
+                                    <li>Ultra gran angular: 8 MP con apertura f/2.2</li>
+                                    <li>Cámara Frontal: 16 MP con apertura f/2.45</li>
+                                </ul>
+                            </li>
+                            <li><strong>Batería y Carga:</strong> 6500 mAh, Carga rápida de 120W</li>
+                            <li><strong>Dimensiones y Resistencia:</strong> 162.5 x 76.9 x 8.6 mm, Resistencia al agua y polvo: certificación IP69; permitiendo inmersión hasta 2 metros durante 30 minutos</li>
+                            <li><strong>Sistema Operativo:</strong> Realme UI 6.0 basado en Android 15</li>
+                        </ul>
+                        <button onclick="agregarCarrito('Realme GT 7 Pro', 30000)">Agregar al carrito</button>
+                        <button onclick="realizarCompra()">Comprar</button>
+                    </div>
                 </div>
             </div>
 
             <!-- Producto 2 -->
             <div class="producto" data-marca="honor" data-precio="29999">
-                <img src="foto1.jpg" alt="Celular 2">
+                <img src="foto1.jpg" alt="Honor Magic 7 Pro">
                 <div>
                     <h4>Honor Magic 7 Pro</h4>
                     <p>Precio: $29,999</p>
@@ -98,7 +129,7 @@
 
             <!-- Producto 3 -->
             <div class="producto" data-marca="samsung" data-precio="32999">
-                <img src="celular3.jpg" alt="Celular 3">
+                <img src="celular3.jpg" alt="Samsung Galaxy S25 Ultra">
                 <div>
                     <h4>Samsung Galaxy S25 Ultra</h4>
                     <p>Precio: $32,999</p>
@@ -108,7 +139,7 @@
 
             <!-- Producto 4 -->
             <div class="producto" data-marca="iphone" data-precio="25999">
-                <img src="celular4.jpg" alt="Celular 4">
+                <img src="celular4.jpg" alt="iPhone 16 Pro Max">
                 <div>
                     <h4>iPhone 16 Pro Max</h4>
                     <p>Precio: $25,999</p>
@@ -118,7 +149,7 @@
 
             <!-- Producto 5 -->
             <div class="producto" data-marca="xiaomi" data-precio="24599">
-                <img src="celular5.jpg" alt="celular 5">
+                <img src="celular5.jpg" alt="Xiaomi 14 Ultra">
                 <div>
                     <h4>Xiaomi 14 Ultra</h4>
                     <p>Precio: $24,599</p>
@@ -126,31 +157,27 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Carrito -->
-        <div id="Carrito" style="display:none;">
-            <h2>Tu Carrito</h2>
-            <div id="productosCarrito"></div>
-            <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-            <button onclick="realizarCompra()">Realizar Compra</button>
-            <button onclick="regresarBusqueda()">Retroceder</button>
-            <h3>Total: $<span id="totalCarrito">0</span></h3>
-        </div>
+    <!-- Carrito -->
+    <div id="Carrito" style="display:none;">
+        <h2>Tu Carrito</h2>
+        <div id="productosCarrito"></div>
+        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button onclick="realizarCompra()">Realizar Compra</button>
+        <button onclick="regresarBusqueda()">Retroceder</button>
+        <h3>Total: $<span id="totalCarrito">0</span></h3>
+    </div>
 
-        <!-- Configuración -->
-        <div id="configuracion" style="display:none;">
-            <h3>Configuración de la cuenta</h3>
-            <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
-            <p><strong>Nombre de Usuario:</strong> <span id="usuario"></span></p>
-            <h4>Privacidad</h4>
-            <ul>
-                <li><a href="#">Cambiar Contraseña</a></li>
-                <li><a href="#">Gestionar Privacidad</a></li>
-            </ul>
-            <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
-        </div>
+    <!-- Configuración -->
+    <div id="configuracion" style="display:none;">
+        <h3>Configuración de la cuenta</h3>
+        <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+        <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
+        <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
     </div>
 
     <script src="script.js"></script> <!-- Enlace al archivo JS -->
 </body>
 </html>
+

@@ -1,3 +1,4 @@
+
 // Función para mostrar el formulario de inicio de sesión
 function mostrarFormulario() {
     document.getElementById("formularioRegistro").style.display = "block";
@@ -64,7 +65,7 @@ function mostrarConfiguracion() {
 // Función para regresar a la página de búsqueda desde el carrito
 function regresarBusqueda() {
     document.getElementById("Carrito").style.display = "none";
-    document.getElementById("paginaBusqueda").style.display = "none";
+    document.getElementById("paginaBusqueda").style.display = "block";
 }
 
 // Función para regresar a la página de búsqueda desde la configuración
@@ -155,4 +156,24 @@ function filtrarBusqueda() {
             producto.style.display = "none";
         }
     }
+}
+
+// Mostrar la ventana emergente (modal) para el Producto 1
+function mostrarModal() {
+    document.getElementById("myModal").style.display = "flex";
+}
+
+// Cerrar la ventana emergente
+function cerrarModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+
+// Función para agregar al carrito (dentro del modal del Producto 1)
+function agregarCarrito() {
+    alert("Producto agregado al carrito.");
+}
+
+// Función para realizar la compra
+function realizarCompra() {
+    alert("Compra realizada.");
 }
