@@ -1,4 +1,3 @@
-
 // Función para mostrar el formulario de inicio de sesión
 function mostrarFormulario() {
     document.getElementById("formularioRegistro").style.display = "block";
@@ -166,6 +165,26 @@ function mostrarModal() {
 // Cerrar la ventana emergente
 function cerrarModal() {
     document.getElementById("myModal").style.display = "none";
+}
+
+// Función para agregar al carrito (dentro del modal del Producto 1)
+function agregarCarrito() {
+    alert("Producto agregado al carrito.");
+}
+
+// Función para realizar la compra
+function realizarCompra() {
+    alert("Compra realizada.");
+}
+
+// Mostrar la ventana emergente (modal) para el Producto 1
+function mostrarModal() {
+    document.getElementById("myModal2").style.display = "flex";
+}
+
+// Cerrar la ventana emergente
+function cerrarModal() {
+    document.getElementById("myModal2").style.display = "none";
 }
 
 // Función para agregar al carrito (dentro del modal del Producto 1)
