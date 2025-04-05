@@ -75,122 +75,42 @@
             <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
         </div>
 
-        <!-- Productos -->
-        <div class="productos">
-            <!-- Producto 1 -->
-            <div class="producto" onclick="mostrarModal()">
-                <img src="fondo.JPG" alt="Realme GT 7 Pro">
-                <div>
-                    <h4>Realme GT 7 Pro</h4>
-                    <p>Precio: $30,000</p>
-                </div>
-            </div>
+     <!-- Productos en la página -->
+<div class="producto">
+    <img src="fondo.JPG" alt="Celular 1" onclick="abrirModal(1)">
+    <button onclick="abrirModal(1)">Ver detalles</button>
+</div>
+<div class="producto">
+    <img src="honor magic7.jpg" alt="Celular 2" onclick="abrirModal(2)">
+    <button onclick="abrirModal(2)">Ver detalles</button>
+</div>
+<div class="producto">
+    <img src="producto 3.jpg" alt="Celular 3" onclick="abrirModal(3)">
+    <button onclick="abrirModal(3)">Ver detalles</button>
+</div>
+<div class="producto">
+    <img src="iphone 16 pro max.jpg" alt="Celular 4" onclick="abrirModal(4)">
+    <button onclick="abrirModal(4)">Ver detalles</button>
+</div>
+<div class="producto">
+    <img src="xiaomi 14 ultra.jpg" alt="Celular 5" onclick="abrirModal(5)">
+    <button onclick="abrirModal(5)">Ver detalles</button>
+</div>
 
-            <!-- Modal con características del Producto 1 -->
-            <div id="myModal" class="modal" style="display:none;">
-                <div class="modal-content">
-                    <!-- Boton de cerrar -->
-                     <span class="close" onclick="cerrarModal()"></span>
-                    <span class="close" onclick="cerrarModal()">&times;</span>
-                    <img src="fondo.JPG" alt="Realme GT 7 Pro">
-                    <div class="detalles">
-                        <h3>Características del Celular</h3>
-                        <ul>
-                            <li><strong>Pantalla:</strong> 6.78 pulgadas AMOLED con tecnología OLED Plus, 2780 x 1264 píxeles (1,5k), 120 Hz, HDR10+, 6500 nits</li>
-                            <li><strong>Procesador:</strong> Qualcomm Snapdragon 8 Elite</li>
-                            <li><strong>Memoria:</strong> 12GB/16GB de RAM, 256GB/512GB/1TB de almacenamiento</li>
-                            <li><strong>Cámaras:</strong>
-                                <ul>
-                                    <li>Cámara Principal: 50 MP con apertura f/1.8 y estabilización óptica (OIS)</li>
-                                    <li>Teleobjetivo periscópico: 50 MP con apertura f/2.65</li>
-                                    <li>Ultra gran angular: 8 MP con apertura f/2.2</li>
-                                    <li>Cámara Frontal: 16 MP con apertura f/2.45</li>
-                                </ul>
-                            </li>
-                            <li><strong>Batería y Carga:</strong> 6500 mAh, Carga rápida de 120W</li>
-                            <li><strong>Dimensiones y Resistencia:</strong> 162.5 x 76.9 x 8.6 mm, Resistencia al agua y polvo: certificación IP69; permitiendo inmersión hasta 2 metros durante 30 minutos</li>
-                            <li><strong>Sistema Operativo:</strong> Realme UI 6.0 basado en Android 15</li>
-                        </ul>
-                        <button onclick="agregarCarrito('Realme GT 7 Pro', 30000)">Agregar al carrito</button>
-                        <button onclick="realizarCompra()">Comprar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Productos -->
-            <div class="productos">
-                 <!-- Producto 2 -->
-            <div class="producto" onclick="mostrarModal()">
-                <img src="honor magic7.jpg" alt="Honor Magic 7 Pro">
-                <div>
-                    <h4>Honor Magic 7 Pro</h4>
-                    <p>Precio: $29,999</p>
-                </div>
-            </div>
-
-              <!-- Modal con características del Producto 2 -->
-            <div id="myModal2" class="modal" style="display:none;">
-                <div class="modal-content">
-                    <!-- Boton de cerrar -->
-                     <span class="close" onclick="cerrarModal()"></span>
-                    <span class="close" onclick="cerrarModal()">&times;</span>
-                    <img src="honor magic7.jpg" alt="Realme GT 7 Pro">
-                    <div class="detalles">
-                        <h3>Características del Celular</h3>
-                        <ul>
-                            <li><strong>Pantalla:</strong> 6.8 pulgadas OLED, 2800 x 1800 píxeles, 120 Hz, 5000 nits</li>
-                            <li><strong>Procesador:</strong> Qualcomm Snapdragon 8 Elite</li>
-                            <li><strong>Memoria:</strong> 12GB/16GB de RAM, 256GB/512GB/1TB de almacenamiento</li>
-                            <li><strong>Cámaras:</strong>
-                                <ul>
-                                    <li>Cámara Principal: 50 MP con apertura (f/1.4 y f/2.0)</li>
-                                    <li>Teleobjetivo periscópico: 200 MP con apertura f/2.6 y zoom optico de 3x</li>
-                                    <li>Ultra gran angular: 50 MP con apertura f/2.0</li>
-                                    <li>Cámara Frontal: 50 MP acompañada de un sensor Tof 3D para desbloqueo facial 3D y selfies de alta calidad</li>
-                                </ul>
-                            </li>
-                            <li><strong>Batería y Carga:</strong> 5,270 mAh, Carga rápida de 100W y inalambrica de 80W</li>
-                            <li><strong>Dimensiones y Resistencia:</strong> 162.7 x 77.1 x 8.8 mm, Resistencia al polvo y agua: certificación IP69 e IP69</li>
-                            <li><strong>Sistema Operativo:</strong> MagicOS 9.0 Android 15</li>
-                        </ul>
-                        <button onclick="agregarCarrito('Honor Magic 7 Pro', 29999)">Agregar al carrito</button>
-                        <button onclick="realizarCompra()">Comprar</button>
-                    </div>
-                </div>
-            </div>
-           
-
-            <!-- Producto 3 -->
-            <div class="producto" data-marca="samsung" data-precio="32999">
-                <img src="producto 3.jpg" alt="Samsung Galaxy S25 Ultra">
-                <div>
-                    <h4>Samsung Galaxy S25 Ultra</h4>
-                    <p>Precio: $32,999</p>
-                    <button onclick="agregarCarrito('Samsung Galaxy S25 Ultra', 32999)">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <!-- Producto 4 -->
-            <div class="producto" data-marca="iphone" data-precio="25999">
-                <img src="iphone 16 pro max.jpg" alt="iPhone 16 Pro Max">
-                <div>
-                    <h4>iPhone 16 Pro Max</h4>
-                    <p>Precio: $25,999</p>
-                    <button onclick="agregarCarrito('iPhone 16 Pro Max', 25999)">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <!-- Producto 5 -->
-            <div class="producto" data-marca="xiaomi" data-precio="24599">
-                <img src="xiaomi 14 ultra.jpg" alt="Xiaomi 14 Ultra">
-                <div>
-                    <h4>Xiaomi 14 Ultra</h4>
-                    <p>Precio: $24,599</p>
-                    <button onclick="agregarCarrito('Xiaomi 14 Ultra', 24599)">Agregar al carrito</button>
-                </div>
-            </div>
+<!-- Modal único para todos los productos -->
+<div id="modalProducto" class="modal">
+    <div class="modal-content">
+        <img id="imagenProducto" src="" alt="Imagen del producto">
+        <div class="detalles">
+            <h3 id="nombreProducto">Nombre del Producto</h3>
+            <ul id="caracteristicasProducto">
+                <!-- Características del producto -->
+            </ul>
+            <button id="btnAgregarCarrito">Agregar al carrito</button>
         </div>
+        <span class="close" onclick="cerrarModal()">&times;</span>
     </div>
+</div>
 
     <!-- Carrito -->
     <div id="Carrito" style="display:none;">
