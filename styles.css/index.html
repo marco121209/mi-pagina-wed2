@@ -4,180 +4,159 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TECPHONES</title>
-    <link rel="stylesheet" href="styles.css">  <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Página de Inicio -->
-    <div id="paginaInicio">
-        <!-- Video de fondo -->
-        <video id="videoFondo" autoplay loop muted>
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            Tu navegador no soporta el video.
-        </video>
+<!-- Página de Inicio -->
+<div id="paginaInicio">
+    <video id="videoFondo" autoplay loop muted>
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+    </video>
 
-        <h1>TECPHONES</h1>
-        <nav>
-            <a href="#" onclick="mostrarFormulario()">Regístrate</a>
-        </nav>
-        
-        <!-- Formulario de Registro / Inicio de sesión -->
-        <div id="formularioRegistro" style="display: none;">
-            <h3>Iniciar Sesión</h3>
-            <input type="email" id="correo" placeholder="Correo electrónico" required>
-            <div id="errorCorreo" class="error"></div>
-            <input type="password" id="contrasena" placeholder="Contraseña" required>
-            <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required>
-            <div id="errorUsuario" class="error"></div>
-            <button type="button" onclick="iniciarSesion()">Iniciar sesión</button>
-            <div class="captcha">
-                <input type="checkbox" id="captcha" /> No soy un robot
-            </div>
-            <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
+    <h1>TECPHONES</h1>
+    <nav>
+        <a href="#" onclick="mostrarFormulario()">Regístrate</a>
+    </nav>
+
+    <div id="formularioRegistro" style="display: none;">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="correo" placeholder="Correo electrónico" required>
+        <div id="errorCorreo" class="error"></div>
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+        <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required>
+        <div id="errorUsuario" class="error"></div>
+        <button type="button" onclick="iniciarSesion()">Iniciar sesión</button>
+        <div class="captcha">
+            <input type="checkbox" id="captcha" /> No soy un robot
         </div>
-        
-        <div class="container">
-            <h2>Celulares y tablets a tu medida ven y conoce TECPHONES</h2>
-            <h2>¿Se te cayó el celular? No te preocupes, ven y encuentra ese celular que deseas a un precio accesible</h2>
+        <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
+    </div>
+
+    <div class="container">
+        <h2>Celulares y tablets a tu medida ven y conoce TECPHONES</h2>
+        <h2>¿Se te cayó el celular? No te preocupes, ven y encuentra ese celular que deseas a un precio accesible</h2>
+    </div>
+</div>
+
+<!-- Página de Búsqueda -->
+<div id="paginaBusqueda" style="display:none;">
+    <h1>Buscar Celular</h1>
+    <nav>
+        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        <a href="#" onclick="mostrarCarrito()">Carrito</a>
+        <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
+        <a href="#">Tu inicio</a>
+    </nav>
+</div>
+<div class="filtros">
+    <select id="filtroMarca" onchange="filtrarBusqueda()">
+        <option value="">Filtrar por Marca</option>
+        <option value="realme">Realme</option>
+        <option value="honor">Honor</option>
+        <option value="samsung">Samsung</option>
+        <option value="iphone">iPhone</option>
+        <option value="xiaomi">Xiaomi</option>
+    </select>
+    <select id="filtroPrecio" onchange="filtrarBusqueda()">
+        <option value="">Filtrar por Precio</option>
+        <option value="bajo">Menor a $20,000</option>
+        <option value="medio">$20,000 - $30,000</option>
+        <option value="alto">Mayor a $30,000</option>
+    </select>
+</div>
+
+<div class="search-container">
+    <input type="text" placeholder="Buscar celular..." id="searchInput" onkeyup="filtrarBusqueda()">
+    <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
+</div>
+
+<!-- Productos -->
+<div class="productos" id="contenedorProductos">
+    <!-- Producto 1 -->
+    <div class="producto" data-marca="realme" data-precio="30000" onclick="abrirModal(1)">
+        <img src="fondo.JPG" alt="Realme GT 7 Pro">
+        <div>
+            <h4>Realme GT 7 Pro</h4>
+            <p>Precio: $30,000</p>
         </div>
     </div>
 
-    <!-- Página de Búsqueda -->
-    <div id="paginaBusqueda" style="display:none;">
-        <h1>Buscar Celular</h1>
-        <nav>
-            <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
-            <a href="#" onclick="mostrarCarrito()">Carrito</a>
-            <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
-            <a href="#">Tu inicio</a>
-        </nav>
-
-        <!-- Filtros de búsqueda -->
-        <div class="filtros">
-            <select id="filtroMarca" onchange="filtrarBusqueda()">
-                <option value="">Filtrar por Marca</option>
-                <option value="realme">Realme</option>
-                <option value="honor">Honor</option>
-                <option value="samsung">Samsung</option>
-                <option value="iphone">iPhone</option>
-                <option value="xiaomi">Xiaomi</option>
-            </select>
-            <select id="filtroPrecio" onchange="filtrarBusqueda()">
-                <option value="">Filtrar por Precio</option>
-                <option value="bajo">Menor a $20,000</option>
-                <option value="medio">$20,000 - $30,000</option>
-                <option value="alto">Mayor a $30,000</option>
-            </select>
-        </div>
-
-        <div class="search-container">
-            <input type="text" placeholder="Buscar celular..." id="searchInput" onkeyup="filtrarBusqueda()">
-            <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
-        </div>
-
-        <!-- Productos -->
-        <div class="productos">
-            <!-- Producto 1 -->
-            <div class="producto" onclick="mostrarModal()">
-                <img src="fondo.JPG" alt="Realme GT 7 Pro">
-                <div>
-                    <h4>Realme GT 7 Pro</h4>
-                    <p>Precio: $30,000</p>
-                </div>
-            </div>
-
-            <!-- Modal con características del Producto 1 -->
-            <div id="myModal" class="modal" style="display:none;">
-                <div class="modal-content">
-                    <!-- Boton de cerrar -->
-                     <span class="close" onclick="cerrarModal()"></span>
-                    <span class="close" onclick="cerrarModal()">&times;</span>
-                    <img src="fondo.JPG" alt="Realme GT 7 Pro">
-                    <div class="detalles">
-                        <h3>Características del Celular</h3>
-                        <ul>
-                            <li><strong>Pantalla:</strong> 6.78 pulgadas AMOLED con tecnología OLED Plus, 2780 x 1264 píxeles (1,5k), 120 Hz, HDR10+, 6500 nits</li>
-                            <li><strong>Procesador:</strong> Qualcomm Snapdragon 8 Elite</li>
-                            <li><strong>Memoria:</strong> 12GB/16GB de RAM, 256GB/512GB/1TB de almacenamiento</li>
-                            <li><strong>Cámaras:</strong>
-                                <ul>
-                                    <li>Cámara Principal: 50 MP con apertura f/1.8 y estabilización óptica (OIS)</li>
-                                    <li>Teleobjetivo periscópico: 50 MP con apertura f/2.65</li>
-                                    <li>Ultra gran angular: 8 MP con apertura f/2.2</li>
-                                    <li>Cámara Frontal: 16 MP con apertura f/2.45</li>
-                                </ul>
-                            </li>
-                            <li><strong>Batería y Carga:</strong> 6500 mAh, Carga rápida de 120W</li>
-                            <li><strong>Dimensiones y Resistencia:</strong> 162.5 x 76.9 x 8.6 mm, Resistencia al agua y polvo: certificación IP69; permitiendo inmersión hasta 2 metros durante 30 minutos</li>
-                            <li><strong>Sistema Operativo:</strong> Realme UI 6.0 basado en Android 15</li>
-                        </ul>
-                        <button onclick="agregarCarrito('Realme GT 7 Pro', 30000)">Agregar al carrito</button>
-                        <button onclick="realizarCompra()">Comprar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 2 -->
-            <div class="producto" data-marca="honor" data-precio="29999">
-                <img src="foto1.jpg" alt="Honor Magic 7 Pro">
-                <div>
-                    <h4>Honor Magic 7 Pro</h4>
-                    <p>Precio: $29,999</p>
-                    <button onclick="agregarCarrito('Honor Magic 7 Pro', 29999)">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <!-- Producto 3 -->
-            <div class="producto" data-marca="samsung" data-precio="32999">
-                <img src="celular3.jpg" alt="Samsung Galaxy S25 Ultra">
-                <div>
-                    <h4>Samsung Galaxy S25 Ultra</h4>
-                    <p>Precio: $32,999</p>
-                    <button onclick="agregarCarrito('Samsung Galaxy S25 Ultra', 32999)">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <!-- Producto 4 -->
-            <div class="producto" data-marca="iphone" data-precio="25999">
-                <img src="celular4.jpg" alt="iPhone 16 Pro Max">
-                <div>
-                    <h4>iPhone 16 Pro Max</h4>
-                    <p>Precio: $25,999</p>
-                    <button onclick="agregarCarrito('iPhone 16 Pro Max', 25999)">Agregar al carrito</button>
-                </div>
-            </div>
-
-            <!-- Producto 5 -->
-            <div class="producto" data-marca="xiaomi" data-precio="24599">
-                <img src="celular5.jpg" alt="Xiaomi 14 Ultra">
-                <div>
-                    <h4>Xiaomi 14 Ultra</h4>
-                    <p>Precio: $24,599</p>
-                    <button onclick="agregarCarrito('Xiaomi 14 Ultra', 24599)">Agregar al carrito</button>
-                </div>
-            </div>
+    <!-- Producto 2 -->
+    <div class="producto" data-marca="honor" data-precio="29999" onclick="abrirModal(2)">
+        <img src="honor magic7.jpg" alt="Honor Magic 7 Pro">
+        <div>
+            <h4>Honor Magic 7 Pro</h4>
+            <p>Precio: $29,999</p>
         </div>
     </div>
 
-    <!-- Carrito -->
-    <div id="Carrito" style="display:none;">
-        <h2>Tu Carrito</h2>
-        <div id="productosCarrito"></div>
-        <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-        <button onclick="realizarCompra()">Realizar Compra</button>
-        <button onclick="regresarBusqueda()">Retroceder</button>
-        <h3>Total: $<span id="totalCarrito">0</span></h3>
+    <!-- Producto 3 -->
+    <div class="producto" data-marca="samsung" data-precio="32999" onclick="abrirModal(3)">
+        <img src="producto 3.jpg" alt="Samsung Galaxy S25 Ultra">
+        <div>
+            <h4>Samsung Galaxy S25 Ultra</h4>
+            <p>Precio: $32,999</p>
+        </div>
     </div>
 
-    <!-- Configuración -->
-    <div id="configuracion" style="display:none;">
-        <h3>Configuración de la cuenta</h3>
-        <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
-        <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
-        <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
+    <!-- Producto 4 -->
+    <div class="producto" data-marca="iphone" data-precio="25999" onclick="abrirModal(4)">
+        <img src="iphone 16 pro max.jpg" alt="iPhone 16 Pro Max">
+        <div>
+            <h4>iPhone 16 Pro Max</h4>
+            <p>Precio: $25,999</p>
+        </div>
     </div>
 
-    <script src="script.js"></script> <!-- Enlace al archivo JS -->
+    <!-- Producto 5 -->
+    <div class="producto" data-marca="xiaomi" data-precio="24599" onclick="abrirModal(5)">
+        <img src="xiaomi 14 ultra.jpg" alt="Xiaomi 14 Ultra">
+        <div>
+            <h4>Xiaomi 14 Ultra</h4>
+            <p>Precio: $24,599</p>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Reutilizable -->
+<div id="modalProducto" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <img id="imagenProducto" src="" alt="Imagen del producto">
+        <div class="detalles">
+            <h3 id="nombreProducto">Nombre del Producto</h3>
+            <ul id="caracteristicasProducto">
+                <!-- Características dinámicas -->
+            </ul>
+            <button id="btnAgregarCarrito">Agregar al carrito</button>
+            <button onclick="realizarCompra()">Comprar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Carrito -->
+<div id="Carrito" style="display:none;">
+    <h2>Tu Carrito</h2>
+    <div id="productosCarrito"></div>
+    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button onclick="realizarCompra()">Realizar Compra</button>
+    <button onclick="regresarBusqueda()">Retroceder</button>
+    <h3>Total: $<span id="totalCarrito">0</span></h3>
+</div>
+
+<!-- Configuración -->
+<div id="configuracion" style="display:none;">
+    <h3>Configuración de la cuenta</h3>
+    <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+    <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
+    <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
+</div>
+</div>
+</div>   
+
+<script src="script.js"></script>
 </body>
 </html>
-

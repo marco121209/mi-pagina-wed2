@@ -5,49 +5,54 @@ body {
     padding: 0;
     background: #fdf8f8;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Estilo para el video de fondo */
 #paginaInicio {
+    display: block;
     position: relative;
-    height: 100vh;  /* Asegura que ocupe toda la altura de la pantalla */
-    width: 100%;  /* Asegura que ocupe todo el ancho de la pantalla */
-    overflow: hidden; /* Para evitar el desbordamiento del video */
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Video de fondo */
 #videoFondo {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centra el video */
-    width: 100%;  /* Asegura que el video cubra toda la pantalla */
-    height: 100vh;  /* Asegura que el video ocupe toda la altura de la pantalla */
-    object-fit: cover;  /* Mantiene la proporción del video */
-    z-index: -1; /* Envía el video al fondo */
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
 }
 
-/* Estilo para los textos sobre el video */
-#paginaInicio h1, #paginaInicio h2, #paginaInicio nav, #paginaInicio .container {
-    color: white;  /* Texto blanco para resaltar sobre el fondo */
-    text-align: center; /* Centrar el texto */
-    z-index: 1;  /* Asegura que el texto esté sobre el video */
+/* Textos sobre el video */
+#paginaInicio h1, 
+#paginaInicio h2, 
+#paginaInicio nav, 
+#paginaInicio .container {
+    color: white;
+    text-align: center;
+    z-index: 1;
 }
 
-/* Estilo del encabezado principal (TECPHONES) */
 #paginaInicio h1 {
-    color: #000 !important;  /* Aseguramos que "TECPHONES" esté en negro */
+    color: #000 !important;
     margin-top: 80px;
     font-size: 48px;
 }
 
-/* Estilo del encabezado secundario (subtítulos en la página de inicio) */
 #paginaInicio h2 {
-    color: #000 !important;  /* Aseguramos que los subtítulos también estén en negro */
+    color: #000 !important;
     font-size: 24px;
 }
 
-/* Estilo del menú de navegación */
+/* Navegación */
 nav {
     padding: 15px;
     text-align: center;
@@ -56,21 +61,33 @@ nav {
 nav a {
     text-decoration: none;
     margin: 0 20px;
-    color: #140857; /* Color azul de los enlaces */
+    color: #140857;
     font-size: 16px;
 }
 
 nav a:hover {
-    color: #1abc9c; /* Hover en enlaces para un contraste más visible */
+    color: #1abc9c;
 }
 
-/* Contenedor principal de la página */
+#paginaBusqueda nav a {
+    display: block;
+    color: #140857;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+#paginaBusqueda nav a:hover {
+    color: #1abc9c;
+}
+
+/* Contenedor principal */
 .container {
     padding: 20px;
     text-align: center;
 }
 
-/* Estilo del contenedor de búsqueda */
+/* Buscador */
 .search-container {
     display: flex;
     justify-content: center;
@@ -78,8 +95,8 @@ nav a:hover {
     margin-top: 30px;
 }
 
-/* Estilos para los inputs y botones */
-input, button {
+input, 
+button {
     padding: 12px;
     border-radius: 5px;
     font-size: 16px;
@@ -87,14 +104,12 @@ input, button {
     outline: none;
 }
 
-/* Estilo para el input de búsqueda */
 .search-container input {
     width: 60%;
     max-width: 400px;
     padding-left: 10px;
 }
 
-/* Estilo para el botón de búsqueda */
 .search-container button {
     background: #3498db;
     color: #fff;
@@ -102,21 +117,25 @@ input, button {
     cursor: pointer;
     padding: 12px 15px;
     margin-left: 5px;
-    border-radius: 5px; /* Añadido border-radius */
 }
 
 .search-container button:hover {
     background: #2980b9;
 }
 
-/* Ícono de búsqueda dentro del botón */
 .search-container button img {
     width: 20px;
     height: 20px;
     vertical-align: middle;
 }
 
-/* Estilo del formulario de registro */
+/* Formulario de registro */
+#error {
+    color: red;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
 #formularioRegistro {
     display: none;
     position: fixed;
@@ -147,21 +166,14 @@ input, button {
     border: none;
     cursor: pointer;
     padding: 12px;
-    border-radius: 5px; /* Añadido border-radius */
+    border-radius: 5px;
 }
 
 #formularioRegistro button:hover {
     background: #45a049;
 }
 
-/* Estilo para los errores del formulario */
-.error {
-    color: red;
-    font-size: 12px;
-    margin-top: -10px;
-}
-
-/* Estilos de los productos en la página de búsqueda */
+/* Productos */
 .producto {
     display: flex;
     justify-content: space-between;
@@ -170,7 +182,17 @@ input, button {
     margin-bottom: 20px;
 }
 
-/* Estilos de los botones de los productos */
+.producto img {
+    width: 150px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.producto img:hover {
+    transform: scale(1.05);
+}
+
 .producto button {
     background-color: #2ecc71;
     color: white;
@@ -184,19 +206,25 @@ input, button {
     background-color: #27ae60;
 }
 
-/* Estilo del carrito */
+/* Carrito */
 #Carrito {
-    padding: 20px;
-    display: none;  /* Inicialmente oculto */
+    padding: 10px;
+    display: none;
 }
 
-/* Estilo del contenedor de la configuración */
+#totalCarrito {
+    font-weight: bold;
+    font-size: 10px;
+}
+
+/* Configuración */
 #configuracion {
     padding: 20px;
-    display: none;  /* Inicialmente oculto */
+    display: none;
 }
 
-#configuracion h3, #configuracion h4 {
+#configuracion h3, 
+#configuracion h4 {
     margin-bottom: 10px;
 }
 
@@ -212,7 +240,7 @@ input, button {
 #configuracion button {
     background-color: #e74c3c;
     color: white;
-    border: block;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -222,53 +250,7 @@ input, button {
     background-color: #c0392b;
 }
 
-/* Estilos generales para el carrito y la configuración */
-#Carrito, #configuracion {
-    display: none;  /* Asegurarse de que se mantengan ocultos hasta ser activados */
-}
-
-/* Estilos para los enlaces en la página de búsqueda */
-#paginaBusqueda nav a {
-    color: #140857;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-#paginaBusqueda nav a:hover {
-    color: #1abc9c;
-}
-
-/* Estilo del total en el carrito */
-#totalCarrito {
-    font-weight: bold;
-    font-size: 24px;
-}
-
-/* Estilo general */
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
-
-/* Estilo de la imagen */
-.producto img {
-    width: 150px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.producto img:hover {
-    transform: scale(1.05);
-}
-
-/* Ventana emergente (modal) */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -292,7 +274,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para la imagen dentro del modal */
 .modal-content img {
     width: 300px;
     height: auto;
@@ -300,7 +281,6 @@ body {
     border-radius: 8px;
 }
 
-/* Estilo para las características y botones */
 .modal-content .detalles {
     flex: 1;
 }
@@ -328,25 +308,7 @@ body {
     background-color: #218838;
 }
 
-/* Estilo del botón para cerrar */
-.close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #aaa;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Estilo para la "X" de cierre */
+/* Botón de cerrar */
 .close {
     position: absolute;
     top: 10px;
@@ -357,10 +319,8 @@ body {
     cursor: pointer;
 }
 
-/* Cuando pasas el mouse por encima de la "X" */
 .close:hover,
 .close:focus {
     color: red;
     text-decoration: none;
-    cursor: pointer;
 }
