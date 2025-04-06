@@ -192,20 +192,19 @@ const productos = [
         id: 4,
         nombre: "Iphone 16 Pro Max",
         imagen: "iphone 16 pro max.jpg",
-        caracteristicas: [
-            "Pantalla: Super Retina XDR OLED 6.9”, 2868 x 1320, 120 Hz, 2800 nits",
-            "Procesador: A18 Pro",
-            "Memoria: 12GB/16GB RAM, 256GB/512GB/1TB",
-            "Sensor principal: 48 MP OIS",
-            "Ultra gran angular: 48 MP",
-            "Teleobjetivo: 12 MP, zoom óptico 5x",
-            "Frontal: 12 MP f/2.2",
-            "Video: 4K Dolby Vision a 120fps",
-            "Batería: 4685 mAh, carga 35W, inalámbrica 15W",
-            "Dimensiones: 163 x 77.6 x 8.25 mm, titanio",
-            "Sistema Operativo: iOS 18",
-            "Extras: Apple Intelligence, Wi-Fi 7, BT 5.3"
-        ]
+        caracteristicas:["Pantalla: Super Retina XDR OLED de 6.9 pulgadas, 2868 x 1320 pixeles, 120 Hz HDR, 2800 nits", 
+             "Procesador: A18 pro", 
+             "Memoria: 12GB/16GB de RAM, 256GB/512GB/1TB de almacenamiento",
+             "Sensor Principal: 48 MP con estabilizacion optica de imagen (OIS)",
+             "Sensor principal: 48 MP con estabilizacion de imagen optica de imagen (OIS)",
+             "Ultra gran angular: 48 MP",
+             "Teleobjetivo: 12 MP y zoom optico de 5x",
+             "Camara frontal: 12 MP f/2.2",
+             "Video: grabacion en 4K Dolby Vision a 120 cps, ofreciendo una calidad cinematografica",
+             "Batería y Carga: 4,685 mAh, Carga rápida de 35W y inalambrica de 15W",
+             "Dimensiones: 163 x 77.6 x 8.25mm, fabricado con titanio de grado 5, ofreciendo una combinacion de resistencia y ligereza",
+             "Sistema Operativo: IOS 18",
+             "Otros: boton de control de la camara, Apple intelligence, compatibilidad con redes 5G, wi-fi 7 y bluetooth 5.3",] 
     },
     {
         id: 5,

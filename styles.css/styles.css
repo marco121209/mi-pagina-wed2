@@ -6,7 +6,8 @@ body {
     background: #fdf8f8;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
@@ -32,9 +33,9 @@ body {
 }
 
 /* Textos sobre el video */
-#paginaInicio h1, 
-#paginaInicio h2, 
-#paginaInicio nav, 
+#paginaInicio h1,
+#paginaInicio h2,
+#paginaInicio nav,
 #paginaInicio .container {
     color: white;
     text-align: center;
@@ -55,29 +56,23 @@ body {
 /* Navegación */
 nav {
     padding: 15px;
-    text-align: center;
+    text-align: left;  /* Alineación a la izquierda */
+    position: fixed;
+    top: 0;
+    left: 10px;  /* Mueve los botones hacia la izquierda */
+    width: auto;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10;  /* Asegura que la barra de navegación esté arriba */
 }
 
 nav a {
     text-decoration: none;
-    margin: 0 20px;
+    margin: 0 15px;
     color: #140857;
     font-size: 16px;
 }
 
 nav a:hover {
-    color: #1abc9c;
-}
-
-#paginaBusqueda nav a {
-    display: block;
-    color: #140857;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-#paginaBusqueda nav a:hover {
     color: #1abc9c;
 }
 
@@ -92,10 +87,12 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 100px; /* Ajusta la distancia para que quede arriba */
+    position: relative;
+    z-index: 2;
 }
 
-input, 
+input,
 button {
     padding: 12px;
     border-radius: 5px;
@@ -137,7 +134,7 @@ button {
 }
 
 #formularioRegistro {
-    display: none;
+    display: block; /* Asegurarse que solo se muestre en la página de registro */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -209,21 +206,16 @@ button {
 /* Carrito */
 #Carrito {
     padding: 10px;
-    display: none;
-}
-
-#totalCarrito {
-    font-weight: bold;
-    font-size: 10px;
+    display: block;
 }
 
 /* Configuración */
 #configuracion {
     padding: 20px;
-    display: none;
+    display: block;
 }
 
-#configuracion h3, 
+#configuracion h3,
 #configuracion h4 {
     margin-bottom: 10px;
 }
@@ -323,4 +315,22 @@ button {
 .close:focus {
     color: red;
     text-decoration: none;
+}
+
+/* Mostrar u ocultar video */
+#videoFondo.show {
+    display: block;
+}
+
+#videoFondo.hide {
+    display: none;
+}
+
+/* Ajustar la visibilidad y posición del video */
+#paginaInicio.show {
+    display: block;
+}
+
+#paginaInicio.hide {
+    display: none;
 }
