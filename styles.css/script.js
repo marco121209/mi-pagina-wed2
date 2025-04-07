@@ -138,7 +138,7 @@ const productos = [
     {
         id: 1,
         nombre: "Realme GT 7 Pro",
-        imagen: "fondo.JPG",
+        imagen: "realme gt 7.jpg",
         caracteristicas: [
             "Pantalla: 6.78 pulgadas AMOLED con tecnología OLED Plus, 2780 x 1264 píxeles (1,5k), 120 Hz, HDR10+, 6500 nits",
             "Procesador: Qualcomm Snapdragon 8 Elite",
@@ -227,7 +227,7 @@ const productos = [
     {
         id: 6,
         nombre: "Huawei Pura 70 Ultra",
-        imagen: "huawei pura 70.jpg",
+        imagen: "huawei pura70.jpg",
         caracteristicas: [ 
             "Pantalla: OLED de 6.8 pulgadas con resolucion 1,5K”, 2844 x 1260 pixeles, 120 Hz, 2500 nits",
             "Procesador: HiSilicon Kirin 9010",
@@ -259,7 +259,7 @@ const productos = [
     {
         id: 8,
         nombre: "Google Pxel 9 Pro",
-        imagen: "google pixel9.jpg",
+        imagen: "google pixel 9.jpg",
         caracteristicas: [ 
             "Pantalla: OLED 6.34 pulgadas”, 2856 x 1280 pixeles, 120 Hz, 3000 nits",
             "Procesador: Google Tensor G4",
