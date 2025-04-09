@@ -10,16 +10,21 @@
 
 
 <!-- Página de Inicio -->
-<div id="paginaInicio">
-    <video id="videoFondo" autoplay loop muted>
-        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-        Tu navegador no soporta el video.
-    </video>
+ <section>
+  <video id="videoFondo" autoplay loop muted>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+</video>
+ </section>
+</div>
 
-    <h1>TECPHONES</h1>
-    <nav>
-        <a href="#" onclick="mostrarFormulario()">Regístrate</a>
-    </nav>
+<div id="paginaInicio">
+   
+
+  <h1>TECPHONES</h1>
+  <nav>
+      <a href="#" onclick="mostrarFormulario()">Regístrate</a>
+  </nav>
 
     <div id="formularioRegistro" style="display: none;">
         <h3>Iniciar Sesión</h3>
@@ -48,6 +53,7 @@
         <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
         <a href="#" onclick="mostrarCarrito()">Carrito</a>
         <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
+        <a href="index.html" onclick="incio()">inicio</a>
         <a href="#">Tu inicio</a>
     </nav>
 </div>
@@ -82,18 +88,19 @@
 
 <div class="productos-contenedor">
      <!-- Producto 1 -->
-    <div class="producto" data-marca="realme" data-precio="30000" onclick="abrirModal(1)">
-        <img src="realme gt 7.jpg" alt="Realme GT 7 Pro">
-        <div>
-            <h4>Realme GT 7 Pro</h4>
-            <div class="precio">$30,000</div>
-            <div class="botones">
-              <button class="carrito">Agregar al carrito</button>
-              <button class="comprar">Comprar</button>
+    <div class="productos-contenedor">
+      <div class="producto" data-marca="realme" data-precio="30000" onclick="abrirModal(1)">
+          <img src="realme gt 7.jpg" alt="Realme GT 7 Pro">
+          <div>
+              <h4>Realme GT 7 Pro</h4>
+              <div class="precio">$30,000</div>
+              <div class="botones">
+                <button class="carrito">Agregar al carrito</button>
+                <button class="comprar">Comprar</button>
+              </div>
             </div>
           </div>
-        </div>
-   
+      </div>
      <!-- Producto 2 -->
      <div class="productos-contenedor">
         <div class="producto" data-marca="honor" data-precio="29999" onclick="abrirModal(2)">
@@ -273,6 +280,36 @@
                   </div>
                 </div>
             </div>
+
+         <!-- Producto 14 -->
+         <div class="productos-contenedor">
+          <div class="producto" data-marca="Samsung" data-precio="20999" onclick="abrirModal(14)">
+              <img src="s25+.jpg" alt="Samsung S25 Plus">
+              <div>
+                  <h4>Samsung S25 Plus</h4>
+                  <div class="precio">$20,999</div>
+                  <div class="botones">
+                    <button class="carrito">Agregar al carrito</button>
+                    <button class="comprar">Comprar</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+         <!-- Producto 15 -->
+         <div class="productos-contenedor">
+          <div class="producto" data-marca="Samsung" data-precio="22999" onclick="abrirModal(15)">
+              <img src="s24 ultra.jpg" alt="Samsung S24 Ultra">
+              <div>
+                  <h4>Samsung S24 Ultra</h4>
+                  <div class="precio">$22,999</div>
+                  <div class="botones">
+                    <button class="carrito">Agregar al carrito</button>
+                    <button class="comprar">Comprar</button>
+                  </div>
+                </div>
+              </div>
+          </div>
         </div>
 
 <!-- Modal Reutilizable -->

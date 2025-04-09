@@ -1,4 +1,3 @@
-
 // Función para mostrar el formulario de inicio de sesión
 function mostrarFormulario() {
     document.getElementById("formularioRegistro").style.display = "block";
@@ -341,6 +340,38 @@ const productos = [
         id: 13,
         nombre: "Nubia Redmagic 10 Pro",
         imagen: "redmagic 10.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 14,
+        nombre: "Samsung S25 Plus",
+        imagen: "s25+.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 15,
+        nombre: "Samsung S24 Ultra",
+        imagen: "s24 ultra.jpg",
         caracteristicas: [ 
             "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
             "Procesador: MediaTek Dimensity 9400",
