@@ -1,326 +1,346 @@
+
 /* Estilo general del body */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fdf8f8;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fdf8f8;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
 }
-
-/* Estilo para el video de fondo */
-#paginaInicio {
-    display: block;
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
-
 #videoFondo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-}
-
-/* Textos sobre el video */
-#paginaInicio h1, 
-#paginaInicio h2, 
-#paginaInicio nav, 
-#paginaInicio .container {
-    color: white;
-    text-align: center;
-    z-index: 1;
-}
-
-#paginaInicio h1 {
-    color: #000 !important;
-    margin-top: 80px;
-    font-size: 48px;
-}
-
-#paginaInicio h2 {
-    color: #000 !important;
-    font-size: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
 }
 
 /* Navegación */
 nav {
-    padding: 15px;
-    text-align: center;
+  padding: 15px;
+  text-align: left;  /* Alineación a la izquierda */
+  position: fixed;
+  top: 0;
+  left: 10px;  /* Mueve los botones hacia la izquierda */
+  width: auto;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 10;  /* Asegura que la barra de navegación esté arriba */
 }
 
 nav a {
-    text-decoration: none;
-    margin: 0 20px;
-    color: #140857;
-    font-size: 16px;
+  text-decoration: none;
+  margin: 0 15px;
+  color: #140857;
+  font-size: 16px;
 }
 
 nav a:hover {
-    color: #1abc9c;
-}
-
-#paginaBusqueda nav a {
-    display: block;
-    color: #140857;
-    font-size: 16px;
-    text-decoration: none;
-    margin: 0 10px;
-}
-
-#paginaBusqueda nav a:hover {
-    color: #1abc9c;
+  color: #1abc9c;
 }
 
 /* Contenedor principal */
-.container {
-    padding: 20px;
-    text-align: center;
-}
-
-/* Buscador */
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
+  position: fixed;     /* mantiene la posición fija en pantalla */
+  top: 20px;           /* distancia desde arriba */
+  right: 20px;         /* distancia desde la derecha */
+  display: flex;
+  align-items: center;
+  z-index: 9999;       /* muy por encima del resto de elementos */
+  background: white;   /* opcional: fondo blanco para destacar */
+  padding: 10px;       /* opcional: espacio interno */
+  border-radius: 10px; /* opcional: bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* sombra para destacar */
+}
+#filtros {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-input, 
+#filtros label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#filtros select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+}
+
+input,
 button {
-    padding: 12px;
-    border-radius: 5px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    outline: none;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
 .search-container input {
-    width: 60%;
-    max-width: 400px;
-    padding-left: 10px;
+  width: 60%;
+  max-width: 400px;
+  padding-left: 10px;
 }
 
 .search-container button {
-    background: #3498db;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 12px 15px;
-    margin-left: 5px;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 12px 15px;
+  margin-left: 5px;
 }
 
 .search-container button:hover {
-    background: #2980b9;
+  background: #2980b9;
 }
 
 .search-container button img {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
 }
 
-/* Formulario de registro */
-#error {
-    color: red;
-    font-size: 12px;
-    margin-top: -10px;
-}
-
-#formularioRegistro {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #fff;
-    padding: 30px;
-    width: 90%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, .3);
-    z-index: 1000;
-}
-
-#formularioRegistro input {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#formularioRegistro button {
-    width: 100%;
-    background: #4CAF50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 12px;
-    border-radius: 5px;
-}
-
-#formularioRegistro button:hover {
-    background: #45a049;
-}
-
-/* Productos */
 .producto {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 280px;
+  margin: 20px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+
+
+/* Contenedor de productos en filas */
+.productos-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
 }
 
 .producto img {
-    width: 150px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: transform 0.3s;
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
 }
 
-.producto img:hover {
-    transform: scale(1.05);
+.producto h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
 }
 
-.producto button {
-    background-color: #2ecc71;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.producto .precio {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e91e63;
+  margin-bottom: 15px;
 }
 
-.producto button:hover {
-    background-color: #27ae60;
+.producto .botones {
+  display: flex;
+  gap: 10px;
+}
+
+.producto .botones button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.producto .botones .carrito {
+  background-color: #3498db;
+  color: white;
+}
+
+.producto .botones .carrito:hover {
+  background-color: #2980b9;
+}
+
+.producto .botones .comprar {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.producto .botones .comprar:hover {
+  background-color: #27ae60;
 }
 
 /* Carrito */
 #Carrito {
-    padding: 10px;
-    display: none;
-}
-
-#totalCarrito {
-    font-weight: bold;
-    font-size: 10px;
+  padding: 10px;
+  display: block;
 }
 
 /* Configuración */
 #configuracion {
-    padding: 20px;
-    display: none;
+  padding: 20px;
+  display: block;
 }
 
-#configuracion h3, 
+#configuracion h3,
 #configuracion h4 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #configuracion ul {
-    list-style-type: none;
-    padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 #configuracion li {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 #configuracion button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 #configuracion button:hover {
-    background-color: #c0392b;
+  background-color: #c0392b;
 }
 
 /* Modal */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .modal-content {
-    background-color: #fff;
-    border-radius: 8px;
-    width: 60%;
-    display: flex;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  width: 60%;
+  display: flex;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .modal-content img {
-    width: 300px;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 8px;
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
 }
 
 .modal-content .detalles {
-    flex: 1;
+  flex: 1;
 }
 
 .modal-content .detalles h3 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .modal-content .detalles ul {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .modal-content .detalles button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .modal-content .detalles button:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 /* Botón de cerrar */
 .close {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-    color: red;
-    text-decoration: none;
+  color: red;
+  text-decoration: none;
+}
+
+/* Mostrar u ocultar video */
+#videoFondo.show {
+  display: block;
+}
+
+#videoFondo.hide {
+  display: none;
+}
+
+/* Ajustar la visibilidad y posición del video */
+#paginaInicio.show {
+  display: block;
+}
+
+#paginaInicio.hide {
+  display: none;
 }
