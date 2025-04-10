@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="es">
@@ -321,3 +322,359 @@
 <script src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECPHONES</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<!-- Página de Inicio -->
+ <section>
+  <video id="videoFondo" autoplay loop muted>
+    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+    Tu navegador no soporta el video.
+</video>
+ </section>
+</div>
+
+<div id="paginaInicio">
+   
+
+  <h1>TECPHONES</h1>
+  <nav>
+      <a href="#" onclick="mostrarFormulario()">Regístrate</a>
+  </nav>
+
+    <div id="formularioRegistro" style="display: none;">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="correo" placeholder="Correo electrónico" required>
+        <div id="errorCorreo" class="error"></div>
+        <input type="password" id="contrasena" placeholder="Contraseña" required>
+        <input type="text" id="nombreUsuario" placeholder="Nombre de Usuario" required>
+        <div id="errorUsuario" class="error"></div>
+        <button type="button" onclick="iniciarSesion()">Iniciar sesión</button>
+        <div class="captcha">
+            <input type="checkbox" id="captcha" /> No soy un robot
+        </div>
+        <button onclick="cerrarFormulario()" class="cancel-button">Cancelar</button>
+    </div>
+
+    <div class="container">
+        <h2>Celulares y tablets a tu medida ven y conoce TECPHONES</h2>
+        <h2>Ven y encuentra ese celular que deseas a un precio accesible</h2>
+    </div>
+</div>
+
+<!-- Página de Búsqueda -->
+<div id="paginaBusqueda" style="display:none;">
+    <h1>Buscar Celular</h1>
+    <nav>
+        <a href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+        <a href="#" onclick="mostrarCarrito()">Carrito</a>
+        <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
+        <a href="index.html" onclick="incio()">inicio</a>
+        <a href="#">Tu inicio</a>
+    </nav>
+</div>
+<div class="filtros">
+    <select id="filtroMarca" onchange="filtrarBusqueda()">
+        <option value="">Filtrar por Marca</option>
+        <option value="realme">Realme</option>
+        <option value="honor">Honor</option>
+        <option value="samsung">Samsung</option>
+        <option value="iphone">iPhone</option>
+        <option value="xiaomi">Xiaomi</option>
+        <option value="huawei">Huawei</option>
+        <option value="asus">Asus</option>
+        <option value="google">Google</option>
+        <option value="Oppo">Oppo</option>
+        <option value="Vivo">Vivo</option>
+        <option value="OnePlus">OnePlus</option>
+        <option value="Nubia">Nubia</option>
+    </select>
+    <select id="filtroPrecio" onchange="filtrarBusqueda()">
+        <option value="">Filtrar por Precio</option>
+        <option value="bajo">Menor a $20,000</option>
+        <option value="medio">$20,000 - $30,000</option>
+        <option value="alto">Mayor a $30,000</option>
+    </select>
+</div>
+
+<div class="search-container">
+    <input type="text" placeholder="Buscar celular..." id="searchInput" onkeyup="filtrarBusqueda()">
+    <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
+</div>
+
+<div class="productos-contenedor">
+     <!-- Producto 1 -->
+    <div class="productos-contenedor">
+      <div class="producto" data-marca="realme" data-precio="30000" onclick="abrirModal(1)">
+          <img src="realme gt 7.jpg" alt="Realme GT 7 Pro">
+          <div>
+              <h4>Realme GT 7 Pro</h4>
+              <div class="precio">$30,000</div>
+              <div class="botones">
+                <button class="carrito">Agregar al carrito</button>
+                <button class="comprar">Comprar</button>
+              </div>
+            </div>
+          </div>
+      </div>
+     <!-- Producto 2 -->
+     <div class="productos-contenedor">
+        <div class="producto" data-marca="honor" data-precio="29999" onclick="abrirModal(2)">
+            <img src="honor magic7.jpg" alt="Honor Magic 7 Pro">
+            <div>
+                <h4>Honor Magic 7 Pro</h4>
+                <div class="precio">$29,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+  
+            <!-- Producto 3 -->
+    <div class="productos-contenedor">
+        <div class="producto" data-marca="samsung" data-precio="32999" onclick="abrirModal(3)">
+            <img src="producto 3.jpg" alt="Samsung Galaxy S25 Ultra">
+            <div>
+                <h4>Samsung Galaxy S25 Ultra</h4>
+        <div class="precio">$32,999</div>
+        <div class="botones">
+          <button class="carrito">Agregar al carrito</button>
+          <button class="comprar">Comprar</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Producto 4 -->
+    <div class="productos-contenedor">
+         <div class="producto" data-marca="iphone" data-precio="25999" onclick="abrirModal(4)">
+            <img src="iphone 16 pro max.jpg" alt="iPhone 16 Pro Max">
+             <div>
+            <h4>iPhone 16 Pro Max</h4>
+            <div class="precio">$25,999</div>
+             <div class="botones">
+             <button class="carrito">Agregar al carrito</button>
+                 <button class="comprar">Comprar</button>
+                 </div>
+                 </div>
+            </div>
+         </div>
+
+      <!-- Producto 5 -->
+    <div class="productos-contenedor">
+        <div class="producto" data-marca="xiaomi" data-precio="24599" onclick="abrirModal(5)">
+            <img src="xiaomi 14 ultra.jpg" alt="Xiaomi 14 Ultra">
+            <div>
+                <h4>Xiaomi 14 Ultra</h4>
+                <div class="precio">$24,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    
+      <!-- Producto 6 -->
+      <div class="productos-contenedor">
+        <div class="producto" data-marca="huawei" data-precio="30999" onclick="abrirModal(6)">
+            <img src="huawei pura70.jpg" alt="Huawei Pura 70 Ultra">
+            <div>
+                <h4>Huawei Pura 70 Ultra</h4>
+                <div class="precio">$30,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+ 
+       <!-- Producto 7 -->
+       <div class="productos-contenedor">
+        <div class="producto" data-marca="asus" data-precio="26999" onclick="abrirModal(7)">
+            <img src="asus rog.jpg" alt="Asus Rog Phone 9 Pro">
+            <div>
+                <h4>Asus Rog Phone 9 Pro</h4>
+                <div class="precio">$26,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    <!-- Producto 8 -->
+    <div class="productos-contenedor">
+        <div class="producto" data-marca="google" data-precio="24999" onclick="abrirModal(8)">
+            <img src="google pixel 9.jpg" alt="Google Pixel 9 Pro">
+            <div>
+                <h4>Google Pixel 9 Pro</h4>
+                <div class="precio">$24,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+     <!-- Producto 9 -->
+     <div class="productos-contenedor">
+        <div class="producto" data-marca="Oppo" data-precio="18999" onclick="abrirModal(9)">
+            <img src="oppo find x8.jpg" alt="Oppo Find X8 Pro">
+            <div>
+                <h4>Oppo Find X8 Pro</h4>
+                <div class="precio">$18,999</div>
+                <div class="botones">
+                  <button class="carrito">Agregar al carrito</button>
+                  <button class="comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- Producto 10 -->
+        <div class="productos-contenedor">
+            <div class="producto" data-marca="Vivo" data-precio="27899" onclick="abrirModal(10)">
+                <img src="vivo x200 pro.jpg" alt="Vivo X200 Pro">
+                <div>
+                    <h4>Vivo X200 Pro</h4>
+                    <div class="precio">$27,899</div>
+                    <div class="botones">
+                      <button class="carrito">Agregar al carrito</button>
+                      <button class="comprar">Comprar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        <!-- Producto 11 -->
+        <div class="productos-contenedor">
+            <div class="producto" data-marca="OnePlus" data-precio="22799" onclick="abrirModal(11)">
+                <img src="oneplus 13.jpg" alt="OnePlus 13">
+                <div>
+                    <h4>OnePlus 13</h4>
+                    <div class="precio">$22,799</div>
+                    <div class="botones">
+                      <button class="carrito">Agregar al carrito</button>
+                      <button class="comprar">Comprar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+        <!-- Producto 12 -->
+        <div class="productos-contenedor">
+            <div class="producto" data-marca="Nubia" data-precio="16999" onclick="abrirModal(12)">
+                <img src="nubia z70.jpg" alt="Nubia Z70 Ultra">
+                <div>
+                    <h4>Nubia Z70 Ultra</h4>
+                    <div class="precio">$16,999</div>
+                    <div class="botones">
+                      <button class="carrito">Agregar al carrito</button>
+                      <button class="comprar">Comprar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+         <!-- Producto 13 -->
+         <div class="productos-contenedor">
+            <div class="producto" data-marca="Nubia" data-precio="24999" onclick="abrirModal(13)">
+                <img src="redmagic 10.jpg" alt="Nubia Redmagic 10 Pro">
+                <div>
+                    <h4>Nubia Redmagic 10 Pro</h4>
+                    <div class="precio">$24,999</div>
+                    <div class="botones">
+                      <button class="carrito">Agregar al carrito</button>
+                      <button class="comprar">Comprar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+         <!-- Producto 14 -->
+         <div class="productos-contenedor">
+          <div class="producto" data-marca="Samsung" data-precio="20999" onclick="abrirModal(14)">
+              <img src="s25+.jpg" alt="Samsung S25 Plus">
+              <div>
+                  <h4>Samsung S25 Plus</h4>
+                  <div class="precio">$20,999</div>
+                  <div class="botones">
+                    <button class="carrito">Agregar al carrito</button>
+                    <button class="comprar">Comprar</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+         <!-- Producto 15 -->
+         <div class="productos-contenedor">
+          <div class="producto" data-marca="Samsung" data-precio="22999" onclick="abrirModal(15)">
+              <img src="s24 ultra.jpg" alt="Samsung S24 Ultra">
+              <div>
+                  <h4>Samsung S24 Ultra</h4>
+                  <div class="precio">$22,999</div>
+                  <div class="botones">
+                    <button class="carrito">Agregar al carrito</button>
+                    <button class="comprar">Comprar</button>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+<!-- Modal Reutilizable -->
+<div id="modalProducto" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="cerrarModal()">&times;</span>
+        <img id="imagenProducto" src="" alt="Imagen del producto">
+        <div class="detalles">
+            <h3 id="nombreProducto">Nombre del Producto</h3>
+            <ul id="caracteristicasProducto">
+                <!-- Características dinámicas -->
+            </ul>
+            <button id="btnAgregarCarrito">Agregar al carrito</button>
+            <button onclick="realizarCompra()">Comprar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Carrito -->
+<div id="Carrito" style="display:none;">
+    <h2>Tu Carrito</h2>
+    <div id="productosCarrito"></div>
+    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button onclick="realizarCompra()">Realizar Compra</button>
+    <button onclick="regresarBusqueda()">Retroceder</button>
+    <h3>Total: $<span id="totalCarrito">0</span></h3>
+</div>
+
+<!-- Configuración -->
+<div id="configuracion" style="display:none;">
+    <h3>Configuración de la cuenta</h3>
+    <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+    <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
+    <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
+</div>
+</div>
+</div>   
+
+<script src="script.js"></script>
+</body>
+</html>
+>>>>>>> ddf441cff1d6a6eb7f1060e7c821781a35971c4b
