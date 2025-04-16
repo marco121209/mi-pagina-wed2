@@ -1,3 +1,40 @@
+const translations = {
+    es: {
+      header: "Bienvenidos a nuestra tienda",
+      description: "Explora los mejores celulares del mercado.",
+      cart: "Agregar al carrito"
+    },
+    en: {
+      header: "Welcome to our store",
+      description: "Explore the best mobile phones on the market.",
+      cart: "Add to cart"
+    }
+  };
+  
+  const languageSelector = document.getElementById("languageSelector");
+  
+  // Función para cambiar el idioma
+  function changeLanguage() {
+    const selectedLanguage = languageSelector.value;
+    const elementsToTranslate = document.querySelectorAll("[data-translate]");
+  
+    elementsToTranslate.forEach((element) => {
+      const key = element.getAttribute("data-translate");
+      element.textContent = translations[selectedLanguage][key];
+    });
+  }
+  
+  // Cambiar idioma cuando el usuario seleccione uno
+  languageSelector.addEventListener("change", changeLanguage);
+  
+  // Establecer el idioma inicial (por defecto Español)
+  changeLanguage();
+  
+document.getElementById('hamburger-btn').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+  
+
 // Función para cerrar sesión
 function cerrarSesion() {
     document.getElementById("paginaInicio").style.display = "block";
@@ -88,7 +125,8 @@ function filtrarBusqueda() {
         var cumpleMarca = filtroMarca === "" || marca.includes(filtroMarca);
         var cumplePrecio = false;
 
-        if (filtroPrecio === "bajo" && precio < 20000) cumplePrecio = true;
+        if (filtroPrecio === "bajo" && precio < 10000) cumplePrecio = true;
+        else if (filtroPrecio === "medio bajo" && precio >= 10000 && precio <= 20000) cumplePrecio = true;
         else if (filtroPrecio === "medio" && precio >= 20000 && precio <= 30000) cumplePrecio = true;
         else if (filtroPrecio === "alto" && precio > 30000) cumplePrecio = true;
 
@@ -339,6 +377,230 @@ const productos = [
         id: 15,
         nombre: "Samsung S24 Ultra",
         imagen: "s24 ultra.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 16,
+        nombre: "Poco F7 Pro",
+        imagen: "poco f7 pro.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 17,
+        nombre: "Iphone 15 Pro Max",
+        imagen: "iphone 15 pro max.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 18,
+        nombre: "Nubia Z60 Ultra",
+        imagen: "z60 ultra.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 19,
+        nombre: "Realme Neo 7",
+        imagen: "realme neo7.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 20,
+        nombre: "Xiaomi MI 15 Ultra",
+        imagen: "xiaomi 15.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 21,
+        nombre: "Realme 14 Pro Plus",
+        imagen: "realme 14 pro+.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 22,
+        nombre: "Huawei Mate XT Ultimate Design",
+        imagen: "huawei mate xt.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 23,
+        nombre: "Realme Note 50",
+        imagen: "realme note 50.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 24,
+        nombre: "Samsung Galaxy Z Fold 6",
+        imagen: "z fold 6.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 25,
+        nombre: "Vivo X100 Pro Plus",
+        imagen: "vivo x100 pro+.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 26,
+        nombre: "Asus Rog Phone 8 Pro",
+        imagen: "asus rog phone 8 pro.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 27,
+        nombre: "OnePlus 12 Pro",
+        imagen: "oneplus 12.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 28,
+        nombre: "Asus Zenfone 11 Ultra",
+        imagen: "asus zenfone 11.jpg",
+        caracteristicas: [ 
+            "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
+            "Procesador: MediaTek Dimensity 9400",
+            "Memoria: 16 de RAM, 256/512GB/1TB de almacenamiento",
+            "Trasera: 50 MP con apertura f/1.57 y estabilizacion optica (OIS)",
+            "Ultra Gran Angular: 50 MP",
+            "Periscopio: 200 MP con apertura f/2.67 y zoom optico 3.5x",
+            "Frontal: 32 MP",
+            "Batería: 6,000 mAh, carga 90W, inalambrica 30W",
+            "Sistema Operativo: Funtouch OS 15, android 15",
+            "Otros:  certificacion IP68, red 5G, WI-FI 7, bluetooth 5.4, NFC, GPS de doble banda, sensor infrarrojos, altavoces duales, lector de huellas dactiles bajo la pantalla y chip de seguridad para proteccion de datos " ]
+    },
+    {
+        id: 29,
+        nombre: "Xiaomi Mix Fold 4",
+        imagen: "xiaomi mix fold 4.jpg",
         caracteristicas: [ 
             "Pantalla: AMOLED 6.78 pulgadas”, 2800 x 1260 pixeles, 120 Hz, 4500 nits",
             "Procesador: MediaTek Dimensity 9400",
