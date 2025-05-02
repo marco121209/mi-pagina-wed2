@@ -1,0 +1,170 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Inicia el documento HTML y especifica el idioma como español -->
+<head> <!-- Inicia la cabecera del documento -->
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Configura la vista para dispositivos móviles -->
+  <title>Configuración de Usuario</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="styles.css"> <!-- Vincula un archivo CSS externo llamado styles.css -->
+
+  <style> 
+    body { /* Estilo general del cuerpo de la página */
+      background: #f5f5f5; /* Color de fondo gris claro */
+      font-family: 'Montserrat', sans-serif; /* Fuente de texto principal */
+      display: flex; /* Utiliza flexbox */
+      justify-content: center; /* Centra horizontalmente */
+      align-items: center; /* Centra verticalmente */
+      height: 100vh; /* Altura de la pantalla completa */
+    }
+
+    .config-box { /* Caja principal de configuración */
+      background: white; /* Fondo blanco */
+      padding: 30px; /* Espaciado interno */
+      border-radius: 10px; /* Bordes redondeados */
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      width: 90%; /* Ancho del 90% del contenedor */
+      max-width: 450px; /* Ancho máximo de 450px */
+      text-align: center; /* Texto centrado */
+    }
+
+    .config-box img { /* Imagen del perfil de usuario */
+      width: 100px; /* Ancho fijo */
+      height: 100px; /* Alto fijo */
+      border-radius: 50%; /* Imagen circular */
+      object-fit: cover; /* Ajusta imagen sin distorsión */
+      margin-bottom: 15px; /* Margen inferior */
+    }
+
+    .config-box h2 { /* Estilo del título de saludo */
+      margin-bottom: 5px; /* Margen inferior */
+      color: #333; /* Color de texto gris oscuro */
+    }
+
+    .config-box p { /* Párrafos dentro de la caja */
+      font-size: 16px; /* Tamaño de fuente */
+      margin: 8px 0; /* Márgenes verticales */
+      color: #555; /* Color de texto gris medio */
+    }
+
+    .acciones { /* Contenedor de botones de acciones */
+      margin-top: 20px; /* Margen superior */
+      display: flex; /* Flexbox */
+      flex-direction: column; /* Dirección vertical */
+      gap: 10px; /* Espacio entre botones */
+    }
+
+    .acciones button { /* Estilos generales para los botones */
+      padding: 10px 15px; /* Espaciado interno */
+      border-radius: 5px; /* Bordes redondeados */
+      font-weight: bold; /* Fuente en negrita */
+      border: none; /* Sin bordes */
+      cursor: pointer; /* Cursor tipo puntero */
+      font-size: 15px; /* Tamaño de fuente */
+    }
+
+    .cerrar { /* Botón para cerrar sesión */
+      background-color: #e74c3c; /* Rojo fuerte */
+      color: white; /* Texto blanco */
+    }
+
+    .eliminar { /* Botón para eliminar cuenta */
+      background-color: #c0392b; /* Rojo más oscuro */
+      color: white; /* Texto blanco */
+    }
+
+    .cambiar { /* Botón para cambiar contraseña */
+      background-color: #f39c12; /* Naranja */
+      color: white; /* Texto blanco */
+    }
+
+    .regresar { /* Botón para volver a la tienda */
+      background-color: #3498db; /* Azul */
+      color: white; /* Texto blanco */
+    }
+  </style> <!-- Fin de los estilos embebidos -->
+</head> <!-- Fin del head -->
+<body> <!-- Inicia el cuerpo de la página -->
+  <div class="config-box"> <!-- Contenedor principal de configuración -->
+    <img src="onfiguracion.jpg" alt="Foto de perfil" id="fotoPerfil"> <!-- Imagen de perfil con ID para modificar desde JS -->
+    <input type="file" accept="image/*" id="inputFoto" style="margin-top: 10px;"> <!-- Input para subir nueva foto de perfil -->
+
+    <h2 id="saludo">Hola, Usuario 👋</h2> <!-- Saludo personalizado con ID para modificar desde JS -->
+
+    <p><strong>Nombre:</strong> <span id="nombreUsuario">Cargando...</span></p> <!-- Muestra nombre del usuario -->
+    <p><strong>Correo:</strong> <span id="correoUsuario">Cargando...</span></p> <!-- Muestra correo del usuario -->
+    <p><strong>Fecha de registro:</strong> <span id="fechaRegistro">Cargando...</span></p> <!-- Fecha de registro del usuario -->
+    <p><strong>Productos en carrito:</strong> <span id="carritoCantidad">0</span></p> <!-- Cantidad de productos en el carrito -->
+
+    <div class="acciones"> <!-- Contenedor de botones -->
+      <button class="cambiar" onclick="cambiarContrasena()">Cambiar contraseña</button> <!-- Botón de cambio de contraseña -->
+      <button class="eliminar" onclick="eliminarCuenta()">Eliminar cuenta</button> <!-- Botón para eliminar cuenta -->
+      <button class="cerrar" onclick="cerrarSesion()">Cerrar sesión</button> <!-- Botón para cerrar sesión -->
+      <button class="regresar" onclick="window.location.href='index.html'">Regresar a la tienda</button> <!-- Botón para volver al inicio -->
+    </div> <!-- Fin contenedor de botones -->
+  </div> <!-- Fin caja principal -->
+  
+  <script> // Inicio del script JavaScript
+
+    // Verifica si hay una imagen guardada en localStorage y la muestra
+    const imagenGuardada = localStorage.getItem("fotoPerfil");
+    if (imagenGuardada) {
+      document.getElementById("fotoPerfil").src = imagenGuardada;
+    }
+
+    // Detecta cambios en el input de imagen
+    document.getElementById("inputFoto").addEventListener("change", function (e) {
+      const archivo = e.target.files[0]; // Obtiene el archivo seleccionado
+      if (archivo && archivo.type.startsWith("image/")) { // Verifica que sea una imagen
+        const reader = new FileReader(); // Crea un lector de archivos
+        reader.onload = function (event) {
+          const base64 = event.target.result; // Convierte a base64
+          document.getElementById("fotoPerfil").src = base64; // Muestra la imagen
+          localStorage.setItem("fotoPerfil", base64); // Guarda en localStorage
+        };
+        reader.readAsDataURL(archivo); // Lee el archivo como base64
+      }
+    });
+
+    // Obtiene nombre, correo, fecha y carrito desde localStorage
+    const nombre = localStorage.getItem("usuarioNombre") || "Usuario";
+    const correo = localStorage.getItem("usuarioCorreo") || "No disponible";
+    const fecha = localStorage.getItem("fechaRegistro") || new Date().toLocaleDateString();
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    // Inserta los valores en los elementos HTML
+    document.getElementById("nombreUsuario").textContent = nombre;
+    document.getElementById("correoUsuario").textContent = correo;
+    document.getElementById("fechaRegistro").textContent = fecha;
+    document.getElementById("carritoCantidad").textContent = carrito.length;
+    document.getElementById("saludo").textContent = `Hola, ${nombre} 👋`; // Saludo personalizado
+
+    // Si no hay fecha de registro, la guarda
+    if (!localStorage.getItem("fechaRegistro")) {
+      localStorage.setItem("fechaRegistro", fecha);
+    }
+
+    // Función para cerrar sesión
+    function cerrarSesion() {
+      localStorage.removeItem("usuarioNombre"); // Elimina nombre
+      localStorage.removeItem("usuarioCorreo"); // Elimina correo
+      localStorage.removeItem("fechaRegistro"); // Elimina fecha
+      alert("Sesión cerrada."); // Mensaje
+      window.location.href = "index.html"; // Redirige al inicio
+    }
+
+    // Función para eliminar la cuenta
+    function eliminarCuenta() {
+      if (confirm("¿Estás seguro de que quieres eliminar tu cuenta?")) { // Confirmación del usuario
+        localStorage.clear(); // Limpia todo el localStorage
+        alert("Cuenta eliminada."); // Mensaje
+        window.location.href = "index.html"; // Redirige
+      }
+    }
+
+    // Función de demostración para cambiar la contraseña
+    function cambiarContrasena() {
+      alert("Función de cambio de contraseña (demo)");
+    }
+
+  </script> <!-- Fin del script -->
+</body> <!-- Fin del cuerpo -->
+</html> <!-- Fin del documento -->

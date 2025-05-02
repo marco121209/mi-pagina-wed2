@@ -1,0 +1,143 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del contenido en español -->
+<head>
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Asegura una visualización adecuada en dispositivos móviles -->
+  <title>Mi Carrito</title> <!-- Título de la pestaña del navegador -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Vincula una hoja de estilos externa -->
+  <style>
+    /* Estilos CSS internos */
+    body {
+      font-family: 'Montserrat', sans-serif; /* Fuente para todo el documento */
+      padding: 30px; /* Espaciado interno */
+      background: #f4f4f4; /* Color de fondo */
+    }
+
+    .carrito-container {
+      max-width: 800px; /* Ancho máximo del contenedor */
+      margin: 0 auto; /* Centra horizontalmente */
+      background: white; /* Fondo blanco */
+      padding: 30px; /* Espaciado interno */
+      border-radius: 12px; /* Bordes redondeados */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave */
+    }
+
+    .producto-carrito {
+      display: flex; /* Usa modelo de caja flexible */
+      align-items: center; /* Centra verticalmente los elementos */
+      justify-content: space-between; /* Espacia los elementos horizontalmente */
+      border-bottom: 1px solid #ddd; /* Línea inferior */
+      padding: 15px 0; /* Espaciado vertical */
+    }
+
+    .producto-carrito img {
+      width: 80px; /* Ancho fijo de la imagen */
+      border-radius: 8px; /* Bordes redondeados */
+    }
+
+    .producto-info {
+      flex: 1; /* Ocupa todo el espacio restante */
+      margin-left: 20px; /* Separación respecto a la imagen */
+    }
+
+    .producto-info h4 {
+      margin: 0; /* Elimina margen por defecto del título */
+    }
+
+    .acciones {
+      display: flex; /* Muestra los botones en fila */
+      gap: 10px; /* Espacio entre botones */
+    }
+
+    button {
+      padding: 10px 15px; /* Espaciado interno del botón */
+      border-radius: 5px; /* Bordes redondeados */
+      font-weight: bold; /* Fuente en negrita */
+      cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+      border: none; /* Elimina borde */
+    }
+
+    .vaciar {
+      background-color: #e74c3c; /* Rojo para botón de vaciar */
+      color: white; /* Texto blanco */
+    }
+
+    .comprar {
+      background-color: #2ecc71; /* Verde para comprar */
+      color: white;
+    }
+
+    .regresar {
+      background-color: #3498db; /* Azul para regresar */
+      color: white;
+    }
+
+    h2, h3 {
+      text-align: center; /* Centra los encabezados */
+    }
+
+    .total {
+      font-size: 20px; /* Tamaño del texto del total */
+      font-weight: bold; /* Negrita */
+      text-align: right; /* Alineado a la derecha */
+      margin-top: 20px; /* Margen superior */
+    }
+  </style>
+</head>
+<body>
+  <div class="carrito-container"> <!-- Contenedor principal del carrito -->
+    <h2>Tu Carrito</h2> <!-- Título del carrito -->
+    <div id="listaCarrito"></div> <!-- Aquí se insertarán los productos dinámicamente -->
+    <div class="total">Total: $<span id="totalCarrito">0</span></div> <!-- Muestra el total a pagar -->
+
+    <div class="acciones"> <!-- Contenedor de botones -->
+      <button class="vaciar" onclick="vaciarCarrito()">Vaciar carrito</button> <!-- Botón para vaciar el carrito -->
+      <button class="comprar" onclick="realizarCompra()">Comprar</button> <!-- Botón para simular una compra -->
+      <button class="regresar" onclick="window.location.href='index.html'">Seguir comprando</button> <!-- Regresa a la tienda -->
+    </div>
+  </div>
+
+  <script>
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || []; // Obtiene el carrito desde localStorage o inicia uno vacío
+    const contenedor = document.getElementById("listaCarrito"); // Referencia al contenedor donde se mostrarán los productos
+    const totalEl = document.getElementById("totalCarrito"); // Referencia al elemento del total
+
+    let total = 0; // Variable para acumular el total del carrito
+
+    carrito.forEach((producto) => { // Recorre cada producto en el carrito
+      const div = document.createElement("div"); // Crea un contenedor para el producto
+      div.classList.add("producto-carrito"); // Le asigna la clase para los estilos
+
+      // Inserta el contenido HTML del producto (imagen, nombre, precio)
+      div.innerHTML = `
+        <img src="${producto.imagen}" alt="${producto.nombre}">
+        <div class="producto-info">
+          <h4>${producto.nombre}</h4>
+          <p>$${producto.precio}</p>
+        </div>
+      `;
+
+      contenedor.appendChild(div); // Agrega el producto al contenedor en la página
+      total += producto.precio; // Suma el precio al total
+    });
+
+    totalEl.textContent = total; // Muestra el total en el span correspondiente
+
+    function vaciarCarrito() {
+      localStorage.removeItem("carrito"); // Elimina el carrito del localStorage
+      alert("Carrito vaciado."); // Muestra alerta al usuario
+      window.location.reload(); // Recarga la página para actualizar la vista
+    }
+
+    function realizarCompra() {
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío."); // Si no hay productos, muestra alerta
+      } else {
+        alert("¡Gracias por tu compra!"); // Mensaje de éxito
+        localStorage.removeItem("carrito"); // Borra el carrito
+        window.location.href = "index.html"; // Redirige a la tienda
+      }
+    }
+  </script>
+</body>
+</html>

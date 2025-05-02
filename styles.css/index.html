@@ -1,93 +1,162 @@
 <!DOCTYPE html>
+<!-- Define que el documento es HTML5 -->
+
 <html lang="es">
+<!-- Etiqueta raíz del documento, idioma establecido en español -->
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Celulares</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <!-- Establece la codificación de caracteres en UTF-8 -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Asegura que el diseño se adapte a dispositivos móviles -->
+
+  <title>Tienda de Celulares</title>
+  <!-- Título que aparece en la pestaña del navegador -->
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap">
+  <!-- Fuente Montserrat desde Google Fonts -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Íconos de FontAwesome para uso en el sitio -->
+
+  <link rel="stylesheet" href="styles.css">
+  <!-- Enlace a tu archivo de estilos personalizados -->
 </head>
+
 <body>
-  <head>
-    <div class="barra-idioma">
-      <label for="languageSelector">TECPHONES:</label>
-      <select id="languageSelector">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-      </select>
-    </div>
-    
-  
-  
-  <!-- NAVBAR SUPERIOR -->  
-  <header class="navbar">
-    <div class="left">
-      <span class="hamburger" id="hamburger-btn">&#9776;</span>
-      <a href="#" onclick="mostrarCarrito()">Carrito </a>
-      <a href="#" onclick="mostrarConfiguracion()">Configuración</a>
-      <a href="#" onclick="iniciarSesion()">iniciar sesion</a>
-    </div>
-    <div class="right">
-    <div class="search-box">
-      <input type="text" placeholder="Buscar celular..." id="searchInput" onkeyup="filtrarBusqueda()">
-      <button><img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Buscar"></button>
-  </div>
-  <div class="ticker">
-    <div class="ticker-text">
-      📢 ¡Atención! Nuevos modelos disponibles en TECPHONES — No te lo pierdas 🚀
+<!-- Inicio del cuerpo del documento -->
+
+  <!-- ====== Marquesina ====== -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <!-- Contenido animado con noticias o promociones -->
+      <p>🚀 ¡Bienvenido a nuestro sitio de tecnología! 🎉 | 🌟 Últimas noticias y tendencias en tecnología aquí. 📡 | 💻 Explora nuestra selección de productos y servicios.  |  "Semana TecPhone" hasta 20% de descuento en celulares Xiaomi </p>
     </div>
   </div>
-  </header>
 
-  <!-- MENÚ LATERAL DESPLEGABLE -->
-  <nav id="side-menu" class="nav-links">
-    <div class="filtros">
-      <select id="filtroMarca" onchange="filtrarBusqueda()">
-          <option value="">Filtrar por Marca</option>
-          <option value="realme">Realme</option>
-          <option value="honor">Honor</option>
-          <option value="samsung">Samsung</option>
-          <option value="iphone">iPhone</option>
-          <option value="xiaomi">Xiaomi</option>
-          <option value="huawei">Huawei</option>
-          <option value="asus">Asus</option>
-          <option value="google">Google</option>
-          <option value="Oppo">Oppo</option>
-          <option value="Vivo">Vivo</option>
-          <option value="OnePlus">OnePlus</option>
-          <option value="Nubia">Nubia</option>
-      </select>
-      <select id="filtroPrecio" onchange="filtrarBusqueda()">
-          <option value="">Filtrar por Precio</option>
-          <option value="bajo">Menor a $10,000</option>
-          <option value="medio bajo">$10,000 - $20,000</option>
-          <option value="medio">$20,000 - $30,000</option>
-          <option value="alto">Mayor a $30,000</option>
-      </select>
+  <!-- ====== Menú de navegación ====== -->
+  <nav class="menu">
+    <div class="logo">
+      <!-- Logo del sitio -->
+      <img src="logo.jpg" alt="TECPHONE" width="100" height="80">
+    </div>
+
+    <div class="menu-toggle">
+      <!-- Botón para menú móvil -->
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul class="menu-links">
+      <!-- Enlaces de navegación principales -->
+      <li><a href="#" class="active">Inicio</a></li>
+      <li class="dropdown">
+        <a href="carrito.html">Carrito</a>
+      </li>
+      <a href="configuracion.html">Configuración</a>
+      <!-- Enlace directo fuera de <li>, lo cual no es correcto -->
+      </li>
+      <a href="login.html">Iniciar sesión</a>
+    </ul>
+
+    <div class="search-bar">
+      <!-- Barra de búsqueda -->
+      <input type="text" id="searchInput" placeholder="Buscar...">
+      <button type="button" id="searchButton"><i class="fas fa-search"></i></button>
+    </div>
+  </nav>
+
+  <!-- Carrito -->
+  <div id="Carrito" style="display:none;">
+    <!-- Sección oculta del carrito de compras -->
+    <h2>Tu Carrito</h2>
+    <div id="productosCarrito"></div>
+    <!-- Aquí se listan los productos del carrito -->
+    <button onclick="vaciarCarrito()">Vaciar Carrito</button>
+    <button onclick="realizarCompra()">Realizar Compra</button>
+    <button onclick="regresarBusqueda()">Retroceder</button>
+    <h3>Total: $<span id="totalCarrito">0</span></h3>
+    <!-- Total a pagar -->
   </div>
-   </nav>
 
-   <!-- Carrito -->
-<div id="Carrito" style="display:none;">
-  <h2>Tu Carrito</h2>
-  <div id="productosCarrito"></div>
-  <button onclick="vaciarCarrito()">Vaciar Carrito</button>
-  <button onclick="realizarCompra()">Realizar Compra</button>
-  <button onclick="regresarBusqueda()">Retroceder</button>
-  <h3>Total: $<span id="totalCarrito">0</span></h3>
-</div>
+  <!-- Configuración -->
+  <div id="configuracion" style="display:none;">
+    <!-- Sección de configuración de cuenta -->
+    <h3>Configuración de la cuenta</h3>
+    <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
+    <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
+    <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
+  </div>
 
-<!-- Configuración -->
-<div id="configuracion" style="display:none;">
-  <h3>Configuración de la cuenta</h3>
-  <p><strong>Correo:</strong> <span id="correoUsuario">No disponible</span></p>
-  <p><strong>Nombre de Usuario:</strong> <span id="nombreUsuarioConfiguracion">No disponible</span></p>
-  <button onclick="regresarBusquedaDesdeConfiguracion()">Regresar</button>
-</div>
- 
-<div class="productos-contenedor">
+  <!-- Barra de promociones con temporizador -->
+  <section class="promociones-barra">
+    <div class="promocion-contenido">
+      <span id="mensajePromocion">¡Horas de descuentos! Descubre las promociones</span>
+
+      <div class="contador-boton">
+        <!-- Temporizador de cuenta regresiva -->
+        <span id="contadorPromocion">-- : -- : --</span>
+        <button onclick="window.location.href='promociones.html'">Ver promociones</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenedor de promociones destacadas -->
+  <section class="promociones-productos" id="promocionesProductos" style="display:none;">
+    <h2>Promociones destacadas</h2>
+    <div class="productos-contenedor" id="contenedorPromociones"></div>
+    <!-- Aquí se insertarán productos promocionados desde JavaScript -->
+  </section>
+
+  <!-- Contenido Principal de la tienda -->
+  <div class="page-content">
+
+    <!-- Sidebar con filtros de productos -->
+    <aside class="sidebar-filtros">
+      <div class="filtro">
+        <h3>Filtrar por:</h3>
+
+        <!-- Filtro por marca -->
+        <div class="categoria">
+          <strong>Marca</strong>
+          <!-- Filtros con cantidad de productos entre paréntesis -->
+          <label><input type="checkbox" name="marca" value="XIAOMI"> XIAOMI (4)</label>
+          <label><input type="checkbox" name="marca" value="REALME"> REALME (4)</label>
+          <label><input type="checkbox" name="marca" value="IPHONE"> IPHONE (2)</label>
+          <label><input type="checkbox" name="marca" value="HONOR"> HONOR (1)</label>
+          <label><input type="checkbox" checked name="marca" value="SAMSUNG"> SAMSUNG (4)</label>
+          <label><input type="checkbox" checked name="marca" value="HUAWEI"> HUAWEI (2)</label>
+          <label><input type="checkbox" checked name="marca" value="ASUS"> ASUS (3)</label>
+          <label><input type="checkbox" checked name="marca" value="GOOGLE"> GOOGLE (1)</label>
+          <label><input type="checkbox" checked name="marca" value="OPPO"> OPPO (1)</label>
+          <label><input type="checkbox" checked name="marca" value="ONEPLUS"> ONEPLUS (2)</label>
+          <label><input type="checkbox" checked name="marca" value="VIVO"> VIVO (2)</label>
+          <label><input type="checkbox" checked name="marca" value="NUBIA"> NUBIA (3)</label>
+        </div>
+
+        <!-- Filtro por precio -->
+        <div class="categoria">
+          <strong>Precio</strong>
+          <label><input type="radio" name="precio" value="1"> MENOS DE $1,499 (8)</label>
+          <label><input type="radio" name="precio" value="2" checked> $1,500 A $5,499 (69)</label>
+          <label><input type="radio" name="precio" value="3"> $5,500 A $10,499 (66)</label>
+          <label><input type="radio" name="precio" value="4"> $10,500 A $16,499 (52)</label>
+          <label><input type="radio" name="precio" value="5"> MÁS DE $16,500 (147)</label>
+
+          <div>
+            <!-- Filtros personalizados por rango de precio -->
+            <input type="number" id="precioMinimo" placeholder="Mín. $0.00">
+            <input type="number" id="precioMaximo" placeholder="Máx. $0.00">
+            <button onclick="filtrarProductos()">Aplicar</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+<div class="productos-contenedor" id="contenedorProductos">
      <!-- Producto 1 -->
-    <div class="productos-contenedor">
-      <div class="producto" data-marca="realme" data-precio="30000" onclick="abrirModal(1)">
+     <div class="productos-contenedor">
+      <div class="producto" data-marca="realme" data-precio="30000" onclick="irADetalleProducto(1)">
           <img src="realme gt 7.jpg" alt="Realme GT 7 Pro">
           <div>
               <h4>Realme GT 7 Pro</h4>
@@ -101,7 +170,7 @@
       </div>
      <!-- Producto 2 -->
      <div class="productos-contenedor">
-        <div class="producto" data-marca="honor" data-precio="29999" onclick="abrirModal(2)">
+        <div class="producto" data-marca="honor" data-precio="29999" onclick="irADetalleProducto(2)">
             <img src="honor magic7.jpg" alt="Honor Magic 7 Pro">
             <div>
                 <h4>Honor Magic 7 Pro</h4>
@@ -115,11 +184,12 @@
         </div>
   
             <!-- Producto 3 -->
-    <div class="productos-contenedor">
-        <div class="producto" data-marca="samsung" data-precio="32999" onclick="abrirModal(3)">
-            <img src="producto 3.jpg" alt="Samsung Galaxy S25 Ultra">
+            <div class="productos-contenedor">
+        <div class="producto" data-marca="samsung" data-precio="32999" onclick="irADetalleProducto(3)">
+            <img src="Samsung s25 Ultra.jpg" alt="Samsung Galaxy S25 Ultra">
+            <span class="cerrar" id="cerrarModal">&times;</span>
             <div>
-                <h4>Samsung Galaxy S25 Ultra</h4>
+              <h4>Samsung Galaxy S25 Ultra</h4>
         <div class="precio">$32,999</div>
         <div class="botones">
           <button class="carrito">Agregar al carrito</button>
@@ -131,7 +201,7 @@
     
     <!-- Producto 4 -->
     <div class="productos-contenedor">
-         <div class="producto" data-marca="iphone" data-precio="25999" onclick="abrirModal(4)">
+         <div class="producto" data-marca="iphone" data-precio="25999" onclick="irADetalleProducto(4)">
             <img src="iphone 16 pro max.jpg" alt="iPhone 16 Pro Max">
              <div>
             <h4>iPhone 16 Pro Max</h4>
@@ -146,7 +216,7 @@
 
       <!-- Producto 5 -->
     <div class="productos-contenedor">
-        <div class="producto" data-marca="xiaomi" data-precio="24599" onclick="abrirModal(5)">
+        <div class="producto" data-marca="xiaomi" data-precio="24599" onclick="irADetalleProducto(5)">
             <img src="xiaomi 14 ultra.jpg" alt="Xiaomi 14 Ultra">
             <div>
                 <h4>Xiaomi 14 Ultra</h4>
@@ -161,7 +231,7 @@
     
       <!-- Producto 6 -->
       <div class="productos-contenedor">
-        <div class="producto" data-marca="huawei" data-precio="30999" onclick="abrirModal(6)">
+        <div class="producto" data-marca="huawei" data-precio="30999" onclick="irADetalleProducto(6)">
             <img src="huawei pura70.jpg" alt="Huawei Pura 70 Ultra">
             <div>
                 <h4>Huawei Pura 70 Ultra</h4>
@@ -176,7 +246,7 @@
  
        <!-- Producto 7 -->
        <div class="productos-contenedor">
-        <div class="producto" data-marca="asus" data-precio="26999" onclick="abrirModal(7)">
+        <div class="producto" data-marca="asus" data-precio="26999" onclick="irADetalleProducto(7)">
             <img src="asus rog.jpg" alt="Asus Rog Phone 9 Pro">
             <div>
                 <h4>Asus Rog Phone 9 Pro</h4>
@@ -191,7 +261,7 @@
 
     <!-- Producto 8 -->
     <div class="productos-contenedor">
-        <div class="producto" data-marca="google" data-precio="24999" onclick="abrirModal(8)">
+        <div class="producto" data-marca="google" data-precio="24999" onclick="irADetalleProducto(8)">
             <img src="google pixel 9.jpg" alt="Google Pixel 9 Pro">
             <div>
                 <h4>Google Pixel 9 Pro</h4>
@@ -206,7 +276,7 @@
 
      <!-- Producto 9 -->
      <div class="productos-contenedor">
-        <div class="producto" data-marca="Oppo" data-precio="18999" onclick="abrirModal(9)">
+        <div class="producto" data-marca="oppo" data-precio="18999" onclick="irADetalleProducto(9)">
             <img src="oppo find x8.jpg" alt="Oppo Find X8 Pro">
             <div>
                 <h4>Oppo Find X8 Pro</h4>
@@ -221,7 +291,7 @@
 
         <!-- Producto 10 -->
         <div class="productos-contenedor">
-            <div class="producto" data-marca="Vivo" data-precio="27899" onclick="abrirModal(10)">
+            <div class="producto" data-marca="vivo" data-precio="27899"  onclick="irADetalleProducto(10)">
                 <img src="vivo x200 pro.jpg" alt="Vivo X200 Pro">
                 <div>
                     <h4>Vivo X200 Pro</h4>
@@ -236,7 +306,7 @@
 
         <!-- Producto 11 -->
         <div class="productos-contenedor">
-            <div class="producto" data-marca="OnePlus" data-precio="22799" onclick="abrirModal(11)">
+            <div class="producto" data-marca="oneplus" data-precio="22799" onclick="irADetalleProducto(11)">
                 <img src="oneplus 13.jpg" alt="OnePlus 13">
                 <div>
                     <h4>OnePlus 13</h4>
@@ -251,7 +321,7 @@
 
         <!-- Producto 12 -->
         <div class="productos-contenedor">
-            <div class="producto" data-marca="Nubia" data-precio="16999" onclick="abrirModal(12)">
+            <div class="producto" data-marca="nubia" data-precio="16999" onclick="irADetalleProducto(12)">
                 <img src="nubia z70.jpg" alt="Nubia Z70 Ultra">
                 <div>
                     <h4>Nubia Z70 Ultra</h4>
@@ -266,7 +336,7 @@
 
          <!-- Producto 13 -->
          <div class="productos-contenedor">
-            <div class="producto" data-marca="Nubia" data-precio="24999" onclick="abrirModal(13)">
+            <div class="producto" data-marca="nubia" data-precio="24999" onclick="irADetalleProducto(13)">
                 <img src="redmagic 10.jpg" alt="Nubia Redmagic 10 Pro">
                 <div>
                     <h4>Nubia Redmagic 10 Pro</h4>
@@ -281,7 +351,7 @@
 
          <!-- Producto 14 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Samsung" data-precio="20999" onclick="abrirModal(14)">
+          <div class="producto" data-marca="samsung" data-precio="20999" onclick="irADetalleProducto(14)">
               <img src="s25+.jpg" alt="Samsung S25 Plus">
               <div>
                   <h4>Samsung S25 Plus</h4>
@@ -296,7 +366,7 @@
 
          <!-- Producto 15 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Samsung" data-precio="22999" onclick="abrirModal(15)">
+          <div class="producto" data-marca="samsung" data-precio="22999" onclick="irADetalleProducto(15)">
               <img src="s24 ultra.jpg" alt="Samsung S24 Ultra">
               <div>
                   <h4>Samsung S24 Ultra</h4>
@@ -311,7 +381,7 @@
 
            <!-- Producto 16 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Xiaomi" data-precio="10999" onclick="abrirModal(16)">
+          <div class="producto" data-marca="xiaomi" data-precio="10999" onclick="irADetalleProducto(16)">
               <img src="poco f7 pro.jpg" alt="Poco F7 Pro">
               <div>
                   <h4>Poco F7 Pro</h4>
@@ -326,7 +396,7 @@
 
           <!-- Producto 17 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Iphone" data-precio="27999" onclick="abrirModal(17)">
+          <div class="producto" data-marca="iphone" data-precio="27999" onclick="irADetalleProducto(17)">
               <img src="iphone 15 pro max.jpg" alt="Iphone 15 Pro Max">
               <div>
                   <h4>Iphone 15 Pro Max</h4>
@@ -341,7 +411,7 @@
 
           <!-- Producto 18 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Nubia" data-precio="14999" onclick="abrirModal(18)">
+          <div class="producto" data-marca="nubia" data-precio="14999" onclick="irADetalleProducto(18)">
               <img src="z60 ultra.jpg" alt="Nubia Z60 Ultra">
               <div>
                   <h4>Nubia Z60 Utra</h4>
@@ -355,7 +425,7 @@
           </div>
           <!-- Producto 19 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Realme" data-precio="7999" onclick="abrirModal(19)">
+          <div class="producto" data-marca="realme" data-precio="7999" onclick="irADetalleProducto(19)">
               <img src="realme neo7.jpg" alt="Realme Neo 7 ">
               <div>
                   <h4>Realme Neo 7</h4>
@@ -370,8 +440,9 @@
 
           <!-- Producto 20 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Xiaomi" data-precio="34999" onclick="abrirModal(20)">
-              <img src="xiaomi 15.jpg" alt="Xiaomi MI 15 Ultra">
+          <div class="producto" data-marca="xiaomi" data-precio="34999" onclick="irADetalleProducto(20)">
+            <img src="xiaomi 15.jpg" alt="Xiaomi MI 15 Ultra">
+
               <div>
                   <h4>Xiaomi MI 15 Ultra</h4>
                   <div class="precio">$34,999</div>
@@ -386,7 +457,7 @@
           
           <!-- Producto 21 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Realme" data-precio="9999" onclick="abrirModal(21)">
+          <div class="producto" data-marca="realme" data-precio="9999" onclick="irADetalleProducto(21)">
               <img src="realme 14 pro+.jpg" alt="Realme 14 Pro Plus">
               <div>
                   <h4>Realme 14 Pro Plus</h4>
@@ -402,7 +473,7 @@
           
           <!-- Producto 22 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Huawei" data-precio="69999" onclick="abrirModal(22)">
+          <div class="producto" data-marca="huawei" data-precio="69999" onclick="irADetalleProducto(22)">
               <img src="huawei mate xt.jpg" alt="Huawei Mate XT Ultimate Design">
               <div>
                   <h4>Huawei Mate XT Ultimate Design </h4>
@@ -418,7 +489,7 @@
           
           <!-- Producto 23 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Realme" data-precio="2999" onclick="abrirModal(23)">
+          <div class="producto" data-marca="realme" data-precio="2999" onclick="irADetalleProducto(23)">
               <img src="realme note 50.jpg" alt="Realme Note 50">
               <div>
                   <h4>Realme Note 50</h4>
@@ -434,7 +505,7 @@
           
           <!-- Producto 24 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Samsung" data-precio="42999" onclick="abrirModal(24)">
+          <div class="producto" data-marca="samsung" data-precio="42999" onclick="irADetalleProducto(24)">
               <img src="z fold 6.jpg" alt="Samsung Galaxy Z Fold 6">
               <div>
                   <h4>Samsung Galaxy Z Fold 6</h4>
@@ -450,7 +521,7 @@
           
           <!-- Producto 25 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Vivo" data-precio="19999" onclick="abrirModal(25)">
+          <div class="producto" data-marca="vivo" data-precio="19999" onclick="irADetalleProducto(25)">
               <img src="vivo x100 pro+.jpg" alt="Vivo X100 Pro Plus">
               <div>
                   <h4>Vivo X100 Pro Plus</h4>
@@ -465,7 +536,7 @@
 
              <!-- Producto 26 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Asus" data-precio="21999" onclick="abrirModal(26)">
+          <div class="producto" data-marca="asus" data-precio="21999" onclick="irADetalleProducto(26)">
               <img src="asus rog phone 8 pro.jpg" alt="Asus Rog Phone 8 Pro">
               <div>
                   <h4>Asus Rog Phone 8 Pro</h4>
@@ -480,7 +551,7 @@
 
              <!-- Producto 27 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="OnePlus" data-precio="17499" onclick="abrirModal(27)">
+          <div class="producto" data-marca="oneplus" data-precio="17499" onclick="irADetalleProducto(27)">
               <img src="oneplus 12.jpg" alt="OnePlus 12 Pro">
               <div>
                   <h4>OnePlus 12 Pro</h4>
@@ -495,7 +566,7 @@
 
              <!-- Producto 28 -->
          <div class="productos-contenedor">
-          <div class="producto" data-marca="Asus" data-precio="25599" onclick="abrirModal(28)">
+          <div class="producto" data-marca="asus" data-precio="25599" onclick="irADetalleProducto(28)">
               <img src="asus zenfone 11.jpg" alt="Asus Zenfone 11 Ultra">
               <div>
                   <h4>Asus Zenfone 11 Ultra</h4>
@@ -510,7 +581,7 @@
 
               <!-- Producto 29 -->
           <div class="productos-contenedor">
-            <div class="producto" data-marca="Xiaomi" data-precio="38999" onclick="abrirModal(29)">
+            <div class="producto" data-marca="xiaomi" data-precio="38999" onclick="irADetalleProducto(29)">
                 <img src="xiaomi mix fold 4.jpg" alt="Xiaomi Mix Fold 4">
                 <div>
                     <h4>Xiaomi Mix Fold 4</h4>
@@ -526,34 +597,78 @@
 
 <!-- Modal Reutilizable -->
 <div id="modalProducto" class="modal" style="display:none;">
-    <div class="modal-content">
-        <span class="close" onclick="cerrarModal()">&times;</span>
-        <img id="imagenProducto" src="" alt="Imagen del producto">
-        <div class="detalles">
-            <h3 id="nombreProducto">Nombre del Producto</h3>
-            <ul id="caracteristicasProducto">
-                <!-- Características dinámicas -->
-            </ul>
-            <button id="btnAgregarCarrito">Agregar al carrito</button>
-            <button onclick="realizarCompra()">Comprar</button>
-        </div>
-    </div>
+  <!-- Contenedor del contenido del modal -->
+  <div class="modal-content">
+      <!-- Botón para cerrar el modal -->
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <!-- Imagen del producto (se actualiza dinámicamente) -->
+      <img id="imagenProducto" src="" alt="Imagen del producto">
+      
+      <!-- Contenedor de detalles del producto -->
+      <div class="detalles">
+          <!-- Nombre del producto (dinámico) -->
+          <h3 id="nombreProducto">Nombre del Producto</h3>
+          <!-- Lista de características del producto (dinámica) -->
+          <ul id="caracteristicasProducto">
+              <!-- Características se insertan con JS -->
+          </ul>
+          <!-- Botón para agregar el producto al carrito -->
+          <button id="btnAgregarCarrito">Agregar al carrito</button>
+          <!-- Botón para ir directo a la compra -->
+          <button onclick="realizarCompra()">Comprar</button>
+      </div>
+  </div>
 </div>
+</div> <!-- Posiblemente este cierre `</div>` está de más si no hay un div abierto justo antes -->
+
+<!-- Sección de Testimonios -->
+<section class="testimonios">
+<h2>Lo que dicen nuestros clientes</h2> <!-- Título de la sección -->
+
+<!-- Contenedor general de los testimonios -->
+<div class="testimonios-contenedor">
+    
+    <!-- Primer testimonio -->
+    <section class="testimonio">
+        <img src="mr1.jpg" alt="Cliente 1"> <!-- Imagen del cliente -->
+        <p class="texto">"Excelente servicio y productos de alta calidad. ¡Recomiendo totalmente!"</p>
+        <p class="nombre">Juan Pérez</p>
+        <p class="cargo">CEO en Empresa XYZ</p>
+    </section>
+    
+    <!-- Segundo testimonio -->
+    <section class="testimonio">
+        <img src="mr2.jpg" alt="Cliente 2">
+        <p class="texto">"La atención al cliente es excepcional. Muy satisfecho con mi compra."</p>
+        <p class="nombre">María González</p>
+        <p class="cargo">Diseñadora Gráfica</p>
+    </section>
+    
+    <!-- Tercer testimonio -->
+    <section class="testimonio">
+        <img src="mr3.jpg" alt="Cliente 3">
+        <p class="texto">"¡Mi experiencia de compra fue increíble! Definitivamente volveré a comprar."</p>
+        <p class="nombre">Carlos López</p>
+        <p class="cargo">Marketing Manager</p>
+    </section>
+</section> <!-- Aquí debería cerrar con `</div>` en lugar de `</section>` si es un contenedor, esto parece un error -->
+
 <!-- Pie de página -->
 <footer class="footer">
-  <div class="footer-logo">
-    <img src="tecphones2.jpg" alt="TECPHONES">
-  </div>
-  <div class="footer-social">
-    <a href="#" class="social-icon facebook" target="_blank">Facebook</a>
-    <a href="#" class="social-icon instagram" target="_blank">Instagram</a>
-    <a href="#" class="social-icon twitter" target="_blank">Twitter</a>
-    <a href="#" class="social-icon linkedin" target="_blank">LinkedIn</a>
-  </div>
+<div class="footer-social">
+  <!-- Íconos/redes sociales -->
+  <a href="#" class="social-icon facebook" target="_blank">Facebook</a>
+  <a href="#" class="social-icon instagram" target="_blank">Instagram</a>
+  <a href="#" class="social-icon twitter" target="_blank">Twitter</a>
+  
+  <!-- Enlaces legales -->
+  <a href="terminos-de-uso.html" target="_blank">Términos de Uso</a> | 
+  <a href="politica-de-privacidad.html" target="_blank">Política de Privacidad</a>
+</div>
 </footer>
 
-
-
+<!-- Script principal que maneja funcionalidad JS (carrito, modal, filtros, etc.) -->
 <script src="script.js"></script>
+
 </body>
-</html>
+</html> <!-- Fin del documento HTML -->

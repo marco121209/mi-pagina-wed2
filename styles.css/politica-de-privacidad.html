@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad - TecPhones</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --accent-color: #e91e63;
+      --text-color: #333;
+      --light-gray: #f6f8fa;
+      --border-color: #e0e0e0;
+      --section-spacing: 2.5rem;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+    
+    body {
+      font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      color: var(--text-color);
+      background-color: #f9f9f9;
+    }
+    
+    .privacy-policy {
+      min-height: 100vh;
+      width: 100%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .header-banner {
+      background: linear-gradient(135deg, var(--primary-color), #2980b9);
+      color: white;
+      padding: 3rem 5%;
+      position: relative;
+    }
+    
+    .header-icon {
+      position: absolute;
+      top: 3rem;
+      right: 5%;
+      font-size: 2.5rem;
+      opacity: 0.7;
+    }
+    
+    .policy-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .policy-intro {
+      font-size: 1.1rem;
+      max-width: 70%;
+    }
+    
+    .policy-content {
+      flex: 1;
+      padding: 3rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .policy-section {
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary-color);
+    }
+    
+    .section-icon {
+      margin-right: 1rem;
+      background: var(--light-gray);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--primary-color);
+    }
+    
+    .section-number {
+      margin-right: 0.6rem;
+      font-weight: 600;
+    }
+    
+    .section-text {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #555;
+    }
+    
+    .back-button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+    
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .back-link:hover {
+      background-color: #2980b9;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    .back-icon {
+      margin-right: 0.5rem;
+    }
+    
+    .footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    @media (max-width: 992px) {
+      .sections-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-banner {
+        padding: 2rem 1.5rem;
+      }
+      
+      .header-icon {
+        top: 2rem;
+        right: 1.5rem;
+        font-size: 2rem;
+      }
+      
+      .policy-title {
+        font-size: 2rem;
+      }
+      
+      .policy-intro {
+        max-width: 100%;
+      }
+      
+      .policy-content {
+        padding: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="privacy-policy">
+    <div class="header-banner">
+      <i class="fas fa-shield-alt header-icon"></i>
+      <h1 class="policy-title">Política de Privacidad</h1>
+      <p class="policy-intro">En TecPhones, respetamos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros.</p>
+    </div>
+    
+    <div class="policy-content">
+      <div class="sections-grid">
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-clipboard-list"></i></div>
+            <span class="section-number">1.</span> Información que recopilamos
+          </h2>
+          <p class="section-text">Recopilamos información personal que tú nos proporcionas al registrarte, realizar compras o suscribirte a nuestros boletines. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección de envío, número de teléfono, y detalles de pago.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-tasks"></i></div>
+            <span class="section-number">2.</span> Uso de la información
+          </h2>
+          <p class="section-text">Utilizamos tu información personal para procesar tus pedidos, responder a tus consultas, enviarte actualizaciones sobre productos y promociones, y mejorar tu experiencia de compra en nuestro sitio.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-lock"></i></div>
+            <span class="section-number">3.</span> Protección de tus datos
+          </h2>
+          <p class="section-text">Implementamos medidas de seguridad para proteger tus datos personales contra acceso no autorizado, alteración o divulgación. Sin embargo, no podemos garantizar la seguridad absoluta de los datos transmitidos a través de Internet.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-cookie"></i></div>
+            <span class="section-number">4.</span> Cookies
+          </h2>
+          <p class="section-text">Utilizamos cookies para mejorar la funcionalidad del sitio y analizar cómo los usuarios interactúan con él. Puedes configurar tu navegador para rechazar las cookies, pero algunas funciones del sitio pueden no funcionar correctamente.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-share-alt"></i></div>
+            <span class="section-number">5.</span> Compartir tu información
+          </h2>
+          <p class="section-text">No compartimos tu información personal con terceros, excepto cuando es necesario para procesar tus pedidos o cumplir con la ley. Por ejemplo, podemos compartir tu información con proveedores de servicios de pago o compañías de envío.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-user-cog"></i></div>
+            <span class="section-number">6.</span> Acceso a tus datos
+          </h2>
+          <p class="section-text">Tienes el derecho de acceder, corregir o eliminar la información personal que hemos recopilado sobre ti. Si deseas realizar alguno de estos cambios, puedes contactarnos a través de nuestros canales de soporte.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-sync-alt"></i></div>
+            <span class="section-number">7.</span> Cambios en la política de privacidad
+          </h2>
+          <p class="section-text">Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página y entrará en vigencia inmediatamente después de su publicación.</p>
+        </div>
+        
+        <div class="policy-section">
+          <h2 class="section-title">
+            <div class="section-icon"><i class="fas fa-envelope"></i></div>
+            <span class="section-number">8.</span> Contacto
+          </h2>
+          <p class="section-text">Si tienes alguna pregunta sobre nuestra política de privacidad o el uso de tus datos personales, puedes contactarnos a través de los medios de comunicación proporcionados en nuestro sitio web.</p>
+        </div>
+      </div>
+      
+      <div class="back-button-container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left back-icon"></i>
+          Regresar a la página principal
+        </a>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>&copy; 2025 TecPhones - Todos los derechos reservados</p>
+    </div>
+  </div>
+</body>
+</html>

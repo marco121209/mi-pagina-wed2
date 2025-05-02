@@ -1,0 +1,126 @@
+<!DOCTYPE html> <!-- Define el tipo de documento HTML -->
+<html lang="es"> <!-- Etiqueta raíz, con el idioma español -->
+<head> <!-- Inicio del encabezado del documento -->
+  <meta charset="UTF-8" /> <!-- Codificación de caracteres UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Hace que el diseño sea responsivo -->
+  <title>Registro - TecPhone</title> <!-- Título de la pestaña del navegador -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Vincula un archivo CSS externo -->
+  <style> 
+    body { /* Estilos para el cuerpo de la página */
+      background: #f5f5f5; /* Color de fondo claro */
+      font-family: 'Montserrat', sans-serif; /* Fuente del texto */
+    }
+
+    .login-container { /* Contenedor principal del formulario */
+      max-width: 400px; /* Máximo ancho */
+      margin: 80px auto; /* Centrado vertical con margen superior */
+      background: white; /* Fondo blanco */
+      padding: 30px; /* Espaciado interno */
+      border-radius: 10px; /* Bordes redondeados */
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Sombra suave */
+    }
+
+    .login-container h2 { /* Título del formulario */
+      text-align: center; /* Centrado */
+      margin-bottom: 20px; /* Espacio inferior */
+      color: #333; /* Color oscuro */
+    }
+
+    .login-container input { /* Campos de entrada */
+      width: 100%; /* Ocupan todo el ancho */
+      padding: 12px; /* Espaciado interno */
+      margin: 10px 0; /* Margen vertical */
+      border-radius: 5px; /* Bordes redondeados */
+      border: 1px solid #ccc; /* Borde gris claro */
+    }
+
+    .login-container button { /* Botón de registro */
+      width: 100%; /* Ocupa todo el ancho */
+      padding: 12px; /* Espaciado interno */
+      background-color: #3498db; /* Color azul */
+      color: white; /* Texto blanco */
+      font-weight: bold; /* Texto en negrita */
+      border: none; /* Sin borde */
+      border-radius: 5px; /* Bordes redondeados */
+      cursor: pointer; /* Cursor tipo mano */
+      margin-top: 10px; /* Espacio superior */
+    }
+
+    .captcha { /* Contenedor para el captcha */
+      display: flex; /* Elementos en línea */
+      align-items: center; /* Alineación vertical */
+      gap: 10px; /* Espacio entre elementos */
+      margin-top: 10px; /* Margen superior */
+    }
+
+    .captcha span { /* Texto del captcha generado */
+      background: #333; /* Fondo oscuro */
+      color: white; /* Texto blanco */
+      padding: 8px 12px; /* Espaciado interno */
+      border-radius: 5px; /* Bordes redondeados */
+      font-weight: bold; /* Negrita */
+      font-size: 18px; /* Tamaño de fuente */
+      letter-spacing: 3px; /* Espaciado entre letras */
+    }
+
+    .error { /* Mensaje de error de captcha */
+      color: red; /* Texto rojo */
+      font-size: 14px; /* Tamaño de fuente pequeño */
+      display: none; /* Oculto por defecto */
+      margin-top: 5px; /* Margen superior */
+    }
+  </style> <!-- Fin de estilos embebidos -->
+</head>
+<body> <!-- Inicio del cuerpo de la página -->
+  <div class="login-container"> <!-- Contenedor del formulario de registro -->
+    <h2>Crear Cuenta</h2> <!-- Título del formulario -->
+    <input type="text" id="nombre" placeholder="Nombre completo" required /> <!-- Campo para nombre -->
+    <input type="email" id="correo" placeholder="Correo electrónico" required /> <!-- Campo para correo -->
+    <input type="password" id="contrasena" placeholder="Contraseña" required /> <!-- Campo para contraseña -->
+
+    <div class="captcha"> <!-- Contenedor del captcha -->
+      <span id="captchaTexto"></span> <!-- Texto del captcha generado -->
+      <input type="text" id="captchaInput" placeholder="Ingresa el código" /> <!-- Campo para ingresar el captcha -->
+    </div>
+    <p class="error" id="captchaError">El captcha no coincide. Intenta de nuevo.</p> <!-- Mensaje de error oculto -->
+
+    <button onclick="validarRegistro()">Registrarse</button> <!-- Botón que ejecuta la función de validación -->
+  </div>
+
+  <script> <!-- Inicio del script JavaScript -->
+    let captchaGenerado = ""; // Variable para almacenar el captcha generado
+
+    function generarCaptcha() { // Función para generar un código captcha aleatorio
+      const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ123456789"; // Caracteres válidos (sin letras confusas como I y O)
+      captchaGenerado = ""; // Se reinicia el valor del captcha
+      for (let i = 0; i < 5; i++) { // Bucle para generar 5 caracteres
+        captchaGenerado += chars.charAt(Math.floor(Math.random() * chars.length)); // Añade un carácter aleatorio
+      }
+      document.getElementById("captchaTexto").textContent = captchaGenerado; // Muestra el captcha en pantalla
+    }
+
+    function validarRegistro() { // Función para validar el registro del usuario
+        const nombre = document.getElementById("nombre").value.trim(); // Obtiene y limpia el nombre ingresado
+        const correo = document.getElementById("correo").value.trim(); // Obtiene y limpia el correo ingresado
+        const captchaInput = document.getElementById("captchaInput").value.trim().toUpperCase(); // Obtiene y transforma el captcha ingresado
+        const errorText = document.getElementById("captchaError"); // Referencia al mensaje de error
+      
+        if (captchaInput !== captchaGenerado) { // Si el captcha no coincide
+          errorText.style.display = "block"; // Muestra el mensaje de error
+          generarCaptcha(); // Genera un nuevo captcha
+        } else {
+          errorText.style.display = "none"; // Oculta el mensaje de error
+      
+          // Guardar en localStorage
+          localStorage.setItem("usuarioNombre", nombre); // Guarda el nombre en el navegador
+          localStorage.setItem("usuarioCorreo", correo); // Guarda el correo en el navegador
+      
+          alert("¡Registro exitoso!"); // Muestra mensaje de éxito
+          window.location.href = "index.html"; // Redirige al inicio
+        }
+      }
+      
+    generarCaptcha(); // Genera el captcha automáticamente al cargar la página
+  </script> <!-- Fin del script JavaScript -->
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html> <!-- Declara el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del contenido como español -->
+<head>
+  <meta charset="UTF-8" /> <!-- Define la codificación de caracteres como UTF-8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Permite el diseño responsive -->
+  <title>Detalles del Producto</title> <!-- Define el título que aparecerá en la pestaña del navegador -->
+  <link rel="stylesheet" href="styles.css" /> <!-- Enlaza una hoja de estilos externa -->
+
+  <style>
+    /* Estilos internos para la página de detalles del producto */
+
+    body {
+      font-family: 'Montserrat', sans-serif; /* Fuente principal */
+      background: #f9f9f9; /* Color de fondo claro */
+      margin: 0; /* Elimina márgenes por defecto */
+      padding: 0; /* Elimina relleno por defecto */
+    }
+
+    .detalle-container {
+      max-width: 1000px; /* Limita el ancho máximo */
+      margin: 40px auto; /* Centrado con margen vertical */
+      background: white; /* Fondo blanco para el contenedor */
+      border-radius: 12px; /* Bordes redondeados */
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra suave */
+      padding: 30px; /* Espaciado interno */
+      animation: fadeIn 1s ease-in-out; /* Animación de aparición */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); } /* Inicio con opacidad 0 y desplazamiento */
+      to { opacity: 1; transform: translateY(0); } /* Fin con opacidad total y sin desplazamiento */
+    }
+
+    .video-container {
+      width: 100%; /* Ocupa todo el ancho disponible */
+      margin-bottom: 30px; /* Espaciado inferior */
+    }
+
+    .video-container video {
+      width: 100%; /* Video a ancho completo */
+      border-radius: 12px; /* Bordes redondeados para el video */
+    }
+
+    .top-section {
+      display: flex; /* Usa modelo de caja flexible */
+      flex-wrap: wrap; /* Permite que los elementos se ajusten */
+      gap: 30px; /* Espaciado entre elementos */
+      align-items: center; /* Centra verticalmente */
+      justify-content: center; /* Centra horizontalmente */
+    }
+
+    .img-preview {
+      position: relative; /* Posicionamiento relativo para las flechas */
+      width: 300px; /* Ancho fijo de la vista previa de imagen */
+    }
+
+    .img-preview img {
+      width: 100%; /* Imagen a tamaño completo del contenedor */
+      border-radius: 12px; /* Bordes redondeados */
+    }
+
+    .img-nav {
+      position: absolute; /* Posicionamiento absoluto para navegación */
+      top: 50%; /* Centrado vertical */
+      transform: translateY(-50%); /* Alineación precisa vertical */
+      font-size: 30px; /* Tamaño del ícono */
+      background: rgba(0,0,0,0.5); /* Fondo semitransparente */
+      color: white; /* Color de ícono */
+      border: none; /* Sin borde */
+      padding: 10px; /* Espaciado interno */
+      cursor: pointer; /* Cursor tipo mano */
+      z-index: 1; /* Superposición */
+    }
+
+    .img-nav.prev {
+      left: -15px; /* Posición a la izquierda */
+    }
+
+    .img-nav.next {
+      right: -15px; /* Posición a la derecha */
+    }
+
+    .info {
+      flex: 1; /* Ocupa el espacio restante */
+    }
+
+    .info h2 {
+      margin-bottom: 10px; /* Espacio inferior del título */
+    }
+
+    .precio {
+      font-size: 22px; /* Tamaño de fuente para el precio */
+      font-weight: bold; /* Texto en negrita */
+      color: #e91e63; /* Color rosa fuerte */
+      margin: 15px 0; /* Espaciado vertical */
+    }
+
+    .almacenamiento {
+      display: flex; /* Contenedor flexible */
+      gap: 10px; /* Espaciado entre botones */
+      margin-bottom: 15px; /* Espacio inferior */
+    }
+
+    .almacenamiento button {
+      padding: 10px 15px; /* Relleno interno */
+      border: 2px solid #3498db; /* Borde azul */
+      background: white; /* Fondo blanco */
+      color: #3498db; /* Color del texto */
+      border-radius: 6px; /* Bordes redondeados */
+      font-weight: bold; /* Texto en negrita */
+      cursor: pointer; /* Cursor tipo mano */
+    }
+
+    .almacenamiento button.active {
+      background: #3498db; /* Fondo azul activo */
+      color: white; /* Texto blanco activo */
+    }
+
+    .info button {
+      padding: 12px 20px; /* Espaciado interno del botón comprar */
+      background: #2ecc71; /* Fondo verde */
+      color: white; /* Texto blanco */
+      border: none; /* Sin borde */
+      border-radius: 6px; /* Bordes redondeados */
+      font-size: 16px; /* Tamaño de fuente */
+      font-weight: bold; /* Negrita */
+      cursor: pointer; /* Cursor tipo mano */
+    }
+
+    .caracteristicas {
+      margin-top: 40px; /* Espacio superior */
+    }
+
+    .caracteristicas h3 {
+      border-bottom: 1px solid #ccc; /* Línea inferior */
+      padding-bottom: 10px; /* Espacio debajo del título */
+      margin-bottom: 20px; /* Espacio inferior */
+    }
+
+    .caracteristicas ul {
+      list-style: none; /* Sin viñetas */
+      padding: 0; /* Sin relleno */
+    }
+
+    .caracteristicas li {
+      margin-bottom: 10px; /* Espaciado entre características */
+      color: #444; /* Color de texto */
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenedor principal donde se cargará dinámicamente el producto -->
+  <div class="detalle-container" id="detalleProducto">
+    <!-- El contenido se generará con JavaScript -->
+  </div>
+
+  <script>
+    const contenedor = document.getElementById("detalleProducto"); // Obtiene el div contenedor
+    const producto = JSON.parse(localStorage.getItem("productoSeleccionado")); // Obtiene el producto guardado en localStorage
+
+    if (!producto) {
+      // Si no se encuentra el producto, muestra un mensaje de error
+      contenedor.innerHTML = "<p>Error al cargar el producto.</p>";
+    } else {
+      // Define el precio base y actual
+      let precioBase = producto.precio || 25999; // Usa precio del producto o valor por defecto
+      let precioActual = precioBase; // Precio mostrado
+      let imagenes = producto.imagenes || [producto.imagen]; // Arreglo de imágenes o imagen única
+      let indexImagen = 0; // Índice actual de imagen
+
+      // Función para renderizar el contenido del producto
+      const render = () => {
+        contenedor.innerHTML = `
+          <div class="video-container">
+            <video src="${producto.video || 'demo-video.mp4'}" autoplay muted loop></video>
+          </div>
+          <div class="top-section">
+            <div class="img-preview">
+              <button class="img-nav prev">&#x276E;</button>
+              <img src="${imagenes[indexImagen]}" alt="${producto.nombre}" id="imgPrincipal">
+              <button class="img-nav next">&#x276F;</button>
+            </div>
+            <div class="info">
+              <h2>${producto.nombre}</h2>
+              <div class="precio" id="precioActual">$${precioActual}</div>
+              <div class="almacenamiento">
+                <button data-extra="0" class="active">256 GB</button>
+                <button data-extra="1500">512 GB</button>
+                <button data-extra="3000">1 TB</button>
+              </div>
+              <button onclick="alert('Producto comprado')">Comprar</button>
+            </div>
+          </div>
+          <div class="caracteristicas">
+            <h3>Características</h3>
+            <ul>
+              ${producto.caracteristicas.map(c => `<li>${c}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+
+        // Añade funcionalidad a los botones de almacenamiento
+        document.querySelectorAll(".almacenamiento button").forEach(btn => {
+          btn.addEventListener("click", function() {
+            document.querySelectorAll(".almacenamiento button").forEach(b => b.classList.remove("active")); // Quita clase activa
+            this.classList.add("active"); // Activa el botón actual
+            const extra = parseInt(this.getAttribute("data-extra")); // Obtiene el valor adicional
+            precioActual = precioBase + extra; // Calcula nuevo precio
+            document.getElementById("precioActual").textContent = "$" + precioActual; // Actualiza el precio mostrado
+          });
+        });
+
+        // Control de imagen anterior
+        document.querySelector(".img-nav.prev").onclick = () => {
+          indexImagen = (indexImagen - 1 + imagenes.length) % imagenes.length; // Decrementa índice con bucle circular
+          document.getElementById("imgPrincipal").src = imagenes[indexImagen]; // Cambia imagen
+        };
+
+        // Control de imagen siguiente
+        document.querySelector(".img-nav.next").onclick = () => {
+          indexImagen = (indexImagen + 1) % imagenes.length; // Incrementa índice con bucle circular
+          document.getElementById("imgPrincipal").src = imagenes[indexImagen]; // Cambia imagen
+        };
+      };
+
+      render(); // Llama a la función para mostrar el contenido
+    }
+  </script>
+</body>
+</html>
