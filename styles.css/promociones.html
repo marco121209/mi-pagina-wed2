@@ -197,7 +197,7 @@
       }
     }
 
-    // Función que agrega el producto al carrito en localStorage
+    // Función que agrega el producto al carrito en localStora
     function agregarAlCarrito(id) {
       let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
       const producto = promociones.find(p => p.id === id);
