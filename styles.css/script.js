@@ -993,3 +993,4 @@ function abrirModal(idProducto) {
 function cerrarModal() {
   document.getElementById("modalProducto").style.display = "none";
 }
+// inspeeccion fina
