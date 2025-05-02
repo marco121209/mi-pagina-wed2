@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchButton = document.getElementById("searchButton");
   const content = document.getElementById("content");
 
-  // Alternar menú en móviles
+  // Alternar menú en móvile
   if (menuToggle) {
     menuToggle.addEventListener("click", function () {
       menu.classList.toggle("active");
