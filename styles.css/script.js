@@ -493,7 +493,7 @@ const productos = [
     precio: 24999,
     imagen: "google pixel 9.jpg",
     imagenes: [
-      "google pixel 9 pro.jpg",
+      "google pixel 9.jpg",
       "google pixel9 de lado.jpg",
       "google pixel9 de costado.jpg",
       "google pixel9 de atras.jpg",
@@ -986,6 +986,7 @@ function abrirModal(idProducto) {
     li.textContent = caracteristica;
     caracteristicasList.appendChild(li);
   });
+
 
   document.getElementById("modalProducto").style.display = "flex";
 }

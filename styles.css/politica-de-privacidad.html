@@ -1,61 +1,59 @@
-<!DOCTYPE html> 
-<html lang="es"> <!-- Elemento raíz del documento, con idioma español -->
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura la vista para dispositivos móviles -->
-  <title>Política de Privacidad - TecPhones</title> <!-- Título que aparece en la pestaña del navegador -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Importa íconos de Font Awesome -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad - TecPhones</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Definición de variables CSS para colores y espaciados */
     :root {
-      --primary-color: #3498db;
-      --accent-color: #e91e63;
+      --primary-color: #e8e8e8;
+      --accent-color: #000000;
       --text-color: #333;
-      --light-gray: #f6f8fa;
+      --light-gray: #0f5ca9;
       --border-color: #e0e0e0;
       --section-spacing: 2.5rem;
+      /* Nuevas variables de color */
+      --bg-color: #ffff;  /* Fondo blanco */
+      --heading-color: #000000; /* Verde azulado oscuro para subtítulos */
+      --link-color: #0f5ca9;    /* Azul para enlaces */
+      --divider-color: #e0e0e0; /* Gris claro para separadores */
     }
-
-    /* Reset de márgenes, paddings y box-sizing */
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
-    /* Estilos generales de html y body */
+    
     html, body {
       height: 100%;
       width: 100%;
       overflow-x: hidden;
     }
-
-    /* Estilo base del body */
+    
     body {
       font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
       line-height: 1.7;
       color: var(--text-color);
-      background-color: #f9f9f9;
+      background-color: var(--bg-color);  /* Aplicar fondo blanco o gris claro */
     }
-
-    /* Contenedor principal de la política de privacidad */
+    
     .privacy-policy {
       min-height: 100vh;
       width: 100%;
-      background: white;
+      background: var(--bg-color);
       display: flex;
       flex-direction: column;
     }
-
-    /* Banner superior con degradado */
+    
     .header-banner {
-      background: linear-gradient(135deg, var(--primary-color), #2980b9);
-      color: white;
+      background: linear-gradient(135deg, var(--primary-color), #ffffff);
+      color: rgb(0, 0, 0);
       padding: 3rem 5%;
       position: relative;
     }
-
-    /* Ícono flotante en el header */
+    
     .header-icon {
       position: absolute;
       top: 3rem;
@@ -63,21 +61,19 @@
       font-size: 2.5rem;
       opacity: 0.7;
     }
-
-    /* Título de la política */
+    
     .policy-title {
       font-size: 2.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      color: var(--accent-color); /* Mantener rosa para el título principal */
     }
-
-    /* Texto introductorio */
+    
     .policy-intro {
       font-size: 1.1rem;
       max-width: 70%;
     }
-
-    /* Contenedor del contenido principal */
+    
     .policy-content {
       flex: 1;
       padding: 3rem 5%;
@@ -85,30 +81,26 @@
       margin: 0 auto;
       width: 100%;
     }
-
-    /* Grid para organizar las secciones */
+    
     .sections-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
       gap: 2.5rem;
     }
-
-    /* Estilo de cada sección de política */
+    
     .policy-section {
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--divider-color); /* Usar gris claro para el separador */
     }
-
-    /* Título de sección con ícono */
+    
     .section-title {
       display: flex;
       align-items: center;
       font-size: 1.5rem;
       margin-bottom: 1.2rem;
-      color: var(--primary-color);
+      color: var(--heading-color);  /* Cambiar color de subtítulos */
     }
-
-    /* Estilo del contenedor del ícono de la sección */
+    
     .section-icon {
       margin-right: 1rem;
       background: var(--light-gray);
@@ -121,92 +113,92 @@
       font-size: 1.1rem;
       color: var(--primary-color);
     }
-
-    /* Número de la sección */
+    
     .section-number {
       margin-right: 0.6rem;
       font-weight: 600;
     }
-
-    /* Texto de cada sección */
+    
     .section-text {
       font-size: 1rem;
       line-height: 1.7;
-      color: #555;
+      color: #424242;
     }
-
-    /* Contenedor del botón de regreso */
+    
     .back-button-container {
       display: flex;
       justify-content: center;
       margin-top: 3rem;
     }
-
-    /* Estilo del enlace de regreso */
+    
     .back-link {
       display: inline-flex;
       align-items: center;
       padding: 1rem 2rem;
       background-color: var(--primary-color);
-      color: white;
+      color: rgb(28, 93, 162);
       border-radius: 30px;
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
     }
-
-    /* Estilo al pasar el mouse sobre el botón de regreso */
+    
     .back-link:hover {
-      background-color: #2980b9;
+      background-color: #cdd6e1;
       transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+      box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
     }
-
-    /* Ícono dentro del botón de regreso */
+    
     .back-icon {
       margin-right: 0.5rem;
     }
-
-    /* Estilo del pie de página */
+    
     .footer {
-      background-color: #f2f2f2;
+      background-color: #212121;
       text-align: center;
       padding: 1.5rem;
       font-size: 0.9rem;
       color: #777;
     }
-
-    /* Media query para pantallas medianas */
+    
+    a {
+      color: var(--link-color); /* Aplicar color azul a los enlaces */
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
     @media (max-width: 992px) {
       .sections-grid {
         grid-template-columns: 1fr;
       }
     }
-
-    /* Media query para pantallas pequeñas */
+    
     @media (max-width: 768px) {
       .header-banner {
         padding: 2rem 1.5rem;
       }
-
+      
       .header-icon {
         top: 2rem;
         right: 1.5rem;
         font-size: 2rem;
       }
-
+      
       .policy-title {
         font-size: 2rem;
       }
-
+      
       .policy-intro {
         max-width: 100%;
       }
-
+      
       .policy-content {
         padding: 1.5rem;
       }
-
+      
       .section-title {
         font-size: 1.3rem;
       }
@@ -214,21 +206,15 @@
   </style>
 </head>
 <body>
-  <!-- Contenedor principal -->
   <div class="privacy-policy">
-    
-    <!-- Encabezado de la política -->
     <div class="header-banner">
-      <i class="fas fa-shield-alt header-icon"></i> <!-- Ícono de escudo -->
-      <h1 class="policy-title">Política de Privacidad</h1> <!-- Título -->
+      <i class="fas fa-shield-alt header-icon"></i>
+      <h1 class="policy-title">Política de Privacidad</h1>
       <p class="policy-intro">En TecPhones, respetamos tu privacidad y nos comprometemos a proteger la información personal que compartes con nosotros.</p>
     </div>
     
-    <!-- Contenido principal de la política -->
     <div class="policy-content">
       <div class="sections-grid">
-        
-        <!-- Sección 1 -->
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-clipboard-list"></i></div>
@@ -236,8 +222,7 @@
           </h2>
           <p class="section-text">Recopilamos información personal que tú nos proporcionas al registrarte, realizar compras o suscribirte a nuestros boletines. Esta información puede incluir tu nombre, dirección de correo electrónico, dirección de envío, número de teléfono, y detalles de pago.</p>
         </div>
-
-        <!-- Sección 2 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-tasks"></i></div>
@@ -245,8 +230,7 @@
           </h2>
           <p class="section-text">Utilizamos tu información personal para procesar tus pedidos, responder a tus consultas, enviarte actualizaciones sobre productos y promociones, y mejorar tu experiencia de compra en nuestro sitio.</p>
         </div>
-
-        <!-- Sección 3 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-lock"></i></div>
@@ -254,8 +238,7 @@
           </h2>
           <p class="section-text">Implementamos medidas de seguridad para proteger tus datos personales contra acceso no autorizado, alteración o divulgación. Sin embargo, no podemos garantizar la seguridad absoluta de los datos transmitidos a través de Internet.</p>
         </div>
-
-        <!-- Sección 4 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-cookie"></i></div>
@@ -263,8 +246,7 @@
           </h2>
           <p class="section-text">Utilizamos cookies para mejorar la funcionalidad del sitio y analizar cómo los usuarios interactúan con él. Puedes configurar tu navegador para rechazar las cookies, pero algunas funciones del sitio pueden no funcionar correctamente.</p>
         </div>
-
-        <!-- Sección 5 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-share-alt"></i></div>
@@ -272,8 +254,7 @@
           </h2>
           <p class="section-text">No compartimos tu información personal con terceros, excepto cuando es necesario para procesar tus pedidos o cumplir con la ley. Por ejemplo, podemos compartir tu información con proveedores de servicios de pago o compañías de envío.</p>
         </div>
-
-        <!-- Sección 6 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-user-cog"></i></div>
@@ -281,8 +262,7 @@
           </h2>
           <p class="section-text">Tienes el derecho de acceder, corregir o eliminar la información personal que hemos recopilado sobre ti. Si deseas realizar alguno de estos cambios, puedes contactarnos a través de nuestros canales de soporte.</p>
         </div>
-
-        <!-- Sección 7 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-sync-alt"></i></div>
@@ -290,8 +270,7 @@
           </h2>
           <p class="section-text">Nos reservamos el derecho de modificar esta política de privacidad en cualquier momento. Cualquier cambio será publicado en esta página y entrará en vigencia inmediatamente después de su publicación.</p>
         </div>
-
-        <!-- Sección 8 -->
+        
         <div class="policy-section">
           <h2 class="section-title">
             <div class="section-icon"><i class="fas fa-envelope"></i></div>
@@ -300,8 +279,7 @@
           <p class="section-text">Si tienes alguna pregunta sobre nuestra política de privacidad o el uso de tus datos personales, puedes contactarnos a través de los medios de comunicación proporcionados en nuestro sitio web.</p>
         </div>
       </div>
-
-      <!-- Botón para regresar a la página principal -->
+      
       <div class="back-button-container">
         <a href="index.html" class="back-link">
           <i class="fas fa-arrow-left back-icon"></i>
@@ -309,8 +287,7 @@
         </a>
       </div>
     </div>
-
-    <!-- Pie de página -->
+    
     <div class="footer">
       <p>&copy; 2025 TecPhones - Todos los derechos reservados</p>
     </div>
